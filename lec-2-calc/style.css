@@ -1,0 +1,14 @@
+body {
+    background-image: url('https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?cs=srgb&dl=pexels-umkreisel-app-956981.jpg&fm=jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Glassmorphism card effect */
+.card {
+       backdrop-filter: blur(4px) saturate(104%);
+    -webkit-backdrop-filter: blur(4px) saturate(104%);
+    background-color: rgba(0, 0, 0, 0.54);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+}
