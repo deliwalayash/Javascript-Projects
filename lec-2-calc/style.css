@@ -8,7 +8,7 @@
          .btn-grad {background-image: linear-gradient(to right, #FF512F 0%, #F09819  51%, #FF512F  100%)}
          .btn-grad {
             margin: 10px;
-            padding: 10px 18px;
+            /* padding: 10px 18px; */
             text-align: center;
             text-transform: uppercase;
             transition: 0.5s;
@@ -29,7 +29,7 @@
          .btn-grad-2 {background-image: linear-gradient(to right, #e52d27 0%, #b31217  51%, #e52d27  100%)}
          .btn-grad-2 {
             margin: 10px;
-            padding: 10px 18px;
+            /* padding: 10px 18px; */
             text-align: center;
             text-transform: uppercase;
             transition: 0.5s;
@@ -93,6 +93,15 @@
 .j:hover {
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
     transition: none;
+}
+.calc-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
