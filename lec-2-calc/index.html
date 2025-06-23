@@ -58,30 +58,58 @@
         let b=document.getElementById("num2");
         let ans=document.getElementById("ans");
         $("#plus").on("click",function(){
+           
+           
             let num1=a.value;
             let num2=b.value;
-            ans.innerHTML = `Ans : ${Number(num1) + Number(num2)}`
+              if (num1 === "" || num2 === "") {
+                ans.innerHTML = "❗ Please input both numbers.";
+                return;
+                }
+            ans.innerHTML = `Addition of ${num1} & ${num2} : ${Number(num1) + Number(num2)}`
+            
+         
         })
         
         $("#min").on("click",function(){
             let num1=a.value;
             let num2=b.value;
-            ans.innerHTML = `Ans : ${Number(num1) - Number(num2)}`
+            if (num1 === "" || num2 === "") {
+                ans.innerHTML = "❗ Please input both numbers.";
+                return;
+                }
+            ans.innerHTML = `Subtraction of ${num1} & ${num2} : ${Number(num1) - Number(num2)}`
         })
         $("#mul").on("click",function(){
             let num1=a.value;
             let num2=b.value;
-            ans.innerHTML = `Ans : ${Number(num1) * Number(num2)}`
+            if (num1 === "" || num2 === "") {
+                ans.innerHTML = "❗ Please input both numbers.";
+                return;
+                }
+            ans.innerHTML = `Multiplication of ${num1} & ${num2} : ${Number(num1) * Number(num2)}`
         })
         $("#div").on("click",function(){
             let num1=a.value;
             let num2=b.value;
-            ans.innerHTML = `Ans : ${Number(num1) / Number(num2)}`
+            if (num1 === "" || num2 === "") {
+                ans.innerHTML = "❗ Please input both numbers.";
+                return;
+                }
+            if(Number(num2) === 0){
+                ans.innerHTML = " ❗ Number Cannot Divided By Zero !";
+                return;
+            }
+            ans.innerHTML = `Division of ${num1} & ${num2} : ${Number(num1) / Number(num2)}`
         })
         $("#mod").on("click",function(){
             let num1=a.value;
             let num2=b.value;
-            ans.innerHTML = `Ans : ${Number(num1) % Number(num2)}`
+            if (num1 === "" || num2 === "") {
+                ans.innerHTML = "❗ Please input both numbers.";
+                return;
+                }
+            ans.innerHTML = `Modulous of ${num1} & ${num2} : ${Number(num1) % Number(num2)}`
         })
         $("#clr").on("click",function(){
             a.value ="";
