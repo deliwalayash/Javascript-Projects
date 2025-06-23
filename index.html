@@ -3,83 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JavaScript projects</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+      <link rel="icon" href="/assets/images/images (4).png" type="image/x-icon">
+
+
 
     
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" 
-integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-
-<link rel="stylesheet" href="./style.css">
-<link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-    rel="stylesheet"
-/>
 </head>
-<body class="dark-theme">
-    <div class="container">
-        <h1 class="text-center mt-3">My Javascript Portfolio</h1>
+<body>
+
+    <body class="dark-theme">
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
     </div>
 
-    <div class="container vh-100 d-flex align-items-center justify-content-center">
-        <div class="row gy-2">
-            <div class="col-4">
-                <div class="card">
-                    <h1>lorem100</h1>
-
-                </div>
+    <nav class="navbar ">
+        <div class="container">
+          <div>
+            <h1><i class="ri-code-s-slash-line"></i>Portfolio</h1>
+        
             
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <h1>lorem100</h1>
+          </div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="ri-sun-fill" id="themeIcon"></i>
+            </button>
+        </div>
+    </nav>
 
-                </div>
-            
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <h1>lorem100</h1>
+    <div class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">My JavaScript Projects</h1>
+            <p class="hero-subtitle">Showcasing my journey in web development and programming</p>
+        </div>
+    </div>
 
-                </div>
+    <div class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
             
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <h1>lorem100</h1>
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="project-card h-100">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="project-icon calculator-gradient">
+                                    <i class="ri-calculator-line text-white"></i>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <h3 class="project-title">Advanced Calculator</h3>
+                            
+                                <div class="project-tech">
+                                    <span class="tech-tag">HTML5</span>
+                                    <span class="tech-tag">CSS3</span>
+                                    <span class="tech-tag">JavaScript</span>
+                                    <span class="tech-tag">jQuery</span>
+                                    <span class="tech-tag">Bootstrap</span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="project-links">
+                                    <a href="https://deliwalayash.github.io/Javascript-class/lec-2-calc/" class="btn-project btn-primary-project" target="_blank">
+                                        <i class="ri-external-link-line"></i> View Live
+                                    </a>
+                                    <a href="https://github.com/deliwalayash/Javascript-class/tree/main/lec-2-calc" class="btn-project btn-secondary-project" target="_blank">
+                                        <i class="ri-github-line"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="project-card h-100">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="project-icon todo-gradient">
+                                    <i class="ri-todo-line text-white"></i>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <h3 class="project-title">Task Manager Pro</h3>
+                            
+                                <div class="project-tech">
+                                    <span class="tech-tag">React</span>
+                                    <span class="tech-tag">TypeScript</span>
+                                    <span class="tech-tag">CSS3</span>
+                                    <span class="tech-tag">Local Storage</span>
+                                      <span class="tech-tag">jQuery</span>
+                                    <span class="tech-tag">Bootstrap</span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="project-links">
+                                    <a href="#" class="btn-project btn-primary-project">
+                                        <i class="ri-external-link-line"></i> View Live
+                                    </a>
+                                    <a href="#" class="btn-project btn-secondary-project">
+                                        <i class="ri-github-line"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <h1>lorem100</h1>
 
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="project-card h-100">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="project-icon weather-gradient">
+                                    <i class="ri-cloudy-line text-white"></i>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <h3 class="project-title">Weather Dashboard</h3>
+                                <div class="project-tech">
+                                    <span class="tech-tag">JavaScript</span>
+                                    <span class="tech-tag">API Integration</span>
+                                    <span class="tech-tag">Geolocation</span>
+                                    <span class="tech-tag">CSS Animations</span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="project-links">
+                                    <a href="#" class="btn-project btn-primary-project">
+                                        <i class="ri-external-link-line"></i> View Live
+                                    </a>
+                                    <a href="#" class="btn-project btn-secondary-project">
+                                        <i class="ri-github-line"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <h1>lorem100</h1>
 
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="project-card h-100">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="project-icon calculator-gradient">
+                                    <i class="ri-user-line text-white"></i>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <h3 class="project-title">Personal Portfolio</h3>
+                             
+                                <div class="project-tech">
+                                    <span class="tech-tag">HTML5</span>
+                                    <span class="tech-tag">SCSS</span>
+                                    <span class="tech-tag">JavaScript</span>
+                                    <span class="tech-tag">AOS Library</span>
+                                      <span class="tech-tag">jQuery</span>
+                                    <span class="tech-tag">Bootstrap</span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="project-links">
+                                    <a href="#" class="btn-project btn-primary-project">
+                                        <i class="ri-external-link-line"></i> View Live
+                                    </a>
+                                    <a href="#" class="btn-project btn-secondary-project">
+                                        <i class="ri-github-line"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="project-card h-100">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="project-icon todo-gradient">
+                                    <i class="ri-shopping-cart-line text-white"></i>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <h3 class="project-title">E-Commerce Store</h3>
+
+                                <div class="project-tech">
+                                    <span class="tech-tag">Node.js</span>
+                                    <span class="tech-tag">Express</span>
+                                    <span class="tech-tag">MongoDB</span>
+                                    <span class="tech-tag">Stripe API</span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="project-links">
+                                    <a href="#" class="btn-project btn-primary-project">
+                                        <i class="ri-external-link-line"></i> View Live
+                                    </a>
+                                    <a href="#" class="btn-project btn-secondary-project">
+                                        <i class="ri-github-line"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="project-card h-100">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <div class="project-icon chat-gradient">
+                                    <i class="ri-chat-3-line text-white"></i>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <h3 class="project-title">Real-time Chat App</h3>
+                             
+                                <div class="project-tech">
+                                    <span class="tech-tag">Socket.io</span>
+                                    <span class="tech-tag">Node.js</span>
+                                    <span class="tech-tag">Express</span>
+                                    <span class="tech-tag">WebSockets</span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="project-links">
+                                    <a href="#" class="btn-project btn-primary-project">
+                                        <i class="ri-external-link-line"></i> View Live
+                                    </a>
+                                    <a href="#" class="btn-project btn-secondary-project">
+                                        <i class="ri-github-line"></i> Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-       
-
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+            $("#themeToggle").on("click",function(){
+                $("body").toggleClass("light-theme dark-theme")
+                $("#themeIcon").toggleClass("ri-moon-fill ri-sun-fill")
+            })
+        });
   
-
-    </div>
-    
-
-    
-    
+    </script>
 </body>
-<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-
-
 </html>
+    

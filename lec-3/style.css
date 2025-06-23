@@ -1,0 +1,67 @@
+.macbook-card {
+  background-image: url('https://i.imgur.com/jwIqkP2.png'); /* MacBook mockup image */
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.macbook-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Overlay content */
+.project-overlay {
+  position: absolute;
+  top: 18%;
+  left: 8%;
+  right: 8%;
+  background-color: rgba(0, 0, 0, 0.65); /* Semi-transparent dark overlay */
+  color: white;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: left;
+}
+
+[data-theme="dark"] .project-overlay {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+[data-theme="light"] .project-overlay {
+  background-color: rgba(0, 0, 0, 0.65);
+  color: #fff;
+}
+
+/* Theme setup */
+:root {
+  --bg-color: #f8f9fa;
+  --text-color: #000;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #f0f0f0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-light {
+  border-color: #fff;
+  color: #fff;
+}
+
+.btn-outline-light:hover {
+  background-color: #fff;
+  color: #000;
+}
