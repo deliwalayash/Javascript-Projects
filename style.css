@@ -346,6 +346,9 @@
 .light-theme .project-card{
     border: 1px solid black;
 }
+.light-theme .navbar{
+      border-bottom: 1px solid black;
+}
 
 
      
