@@ -30,7 +30,7 @@
         }
 
         .light-theme {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 50%, #ffeef3 100%);
+            background: linear-gradient(135deg, #a8edea 0%, #c3cbf9 50%, #ffeef3 100%);
             color: black;
         }
 
@@ -98,7 +98,7 @@
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.472);
             padding: 2rem;
             margin-bottom: 2rem;
             transition: all 0.3s ease;
@@ -341,6 +341,10 @@
 
 .dark-theme .theme-toggle{
     color: white;
+}
+
+.light-theme .project-card{
+    border: 1px solid black;
 }
 
 
