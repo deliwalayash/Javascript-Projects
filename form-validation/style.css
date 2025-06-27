@@ -1,0 +1,20 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    height: 100vh;
+    background: #020024;
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 84, 121, 1) 53%, rgba(0, 212, 255, 1) 100%);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+ 
+}
+.form-card{
+     background: #2A7B9B;
+    background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 40%, rgba(237, 221, 83, 1) 100%);
+    width: 450px;
+    border: 3px solid black;
+    border-radius: 10px;
+}
