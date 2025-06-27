@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+<body class="m-4">
+    <input type="text" id="num1">
+    <input type="text" id="num2">
+    <input type="text" id="num3">
+    <input type="text" id="num4">
+    <input type="text" id="num5">
+    <input type="text" id="num6">
+    <input type="text" id="num7">
+    <input type="text" id="num8">
+    <input type="text" id="num9">
+    <input type="text" id="num10">
+    <button class="btn btn-primary" id="btn">Click Me</button>
+    <h1 id="ans"></h1>
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $("#btn").on("click",function(){
+            let a=Number(document.getElementById("num1").value);
+            let b=Number(document.getElementById("num2").value);
+            let c=Number(document.getElementById("num3").value);
+            let d=Number(document.getElementById("num4").value);
+            let e=Number(document.getElementById("num5").value);
+            let f=Number(document.getElementById("num6").value);
+            let g=Number(document.getElementById("num7").value);
+            let h=Number(document.getElementById("num8").value);
+            let i=Number(document.getElementById("num9").value);
+            let j=Number(document.getElementById("num10").value);
+            let ans=document.getElementById("ans");
+
+            let maxNum=a;
+            if(a > maxNum){
+                maxNum = a;
+            }
+            if(b > maxNum){
+                maxNum = b;
+            }
+            if(c > maxNum){
+                maxNum = c;
+            }
+            if(d > maxNum){
+                maxNum = d;
+            }
+            if(e > maxNum){
+                maxNum = e;
+            }
+            if(f > maxNum){
+                maxNum = f;
+            }
+            if(g > maxNum){
+                maxNum = g;
+            }
+            if(h > maxNum){
+                maxNum = h;
+            }
+            if(i > maxNum){
+                maxNum = i;
+            }
+            if(j > maxNum){
+                maxNum = j;
+            }
+
+            ans.innerHTML = `Maximum Number is ${Number(maxNum)}`;
+            
+        })
+
+    })
+</script>
+
+</body>
+
+
+</html>
