@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+<style>
+    .box{
+        height: 100px;
+        width: 100px;
+        background-color: aquamarine;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 25px;
+        font-weight: 600;
+        transition: all 0.1s linear;
+    }
+    .box:hover{
+        background-color: coral;
+        border-radius: 50%;
+
+    }
+</style>
+<body>
+
+    <div id="demo" class="d-flex gap-3 flex-wrap container">
+
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+
+let box2=document.getElementById("demo")
+for(let i = 0;i <=50 ; i++){
+    box2.innerHTML += `<div class="box">${i}</div>`
+}
+
+
+</script>
+    
+</body>
+</html>
