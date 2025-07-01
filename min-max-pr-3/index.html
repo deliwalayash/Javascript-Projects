@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+</head>
+
+<style>
+    input{
+        
+        background-color: aquamarine;
+        padding: 30px;
+    }
+</style>
+<body>
+    <input type="text" id="num">
+    <label for="num"></label>
+    <button type="button" id="sub">Submit</button>
+    <div id="demo" class="d-flex gap-3 flex-wrap"></div>
+    <button class="btn btn-primary" id="random">Random</button>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            let ipnum=document.getElementById("num")
+            let box=document.getElementById("demo")
+            let number=0;
+            $("#sub").on("click",function(){
+                number=parseInt(ipnum.value);
+                box.innerHTML = "";
+                for(let i = 1;i <= number;i++){
+                    box.innerHTML += `<input type="text" id="num${i}">`
+                }
+            })
+            $("#random").on("click",function(){
+                 for(i = 1;i <=number;i++){
+                    // let random=parseInt( (Math.random() *100));
+                    let input = document.getElementById(`num${i}`).value = parent(Math.random() *100);
+                    // input.value = random;
+                 }
+            })
+
+        })
+    </script>
+</body>
+</html>
