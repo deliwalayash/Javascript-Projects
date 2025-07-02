@@ -42,6 +42,10 @@
                     }
              
                  }
+                if(max === -Infinity){
+                        ans.innerHTML ="Please Enter Valid Input";
+                        return;
+                }
                     $(maxid).addClass("highlight")
                     ans.innerHTML = `Maximum Number is ${max}`;
             })
@@ -58,12 +62,22 @@
                     }
                    
                 }
+                   if(min === Infinity){
+                        ans.innerHTML ="Please Enter Valid Input";
+                        return;
+                }
                 $(minid).addClass("highlight")
                  ans.innerHTML = `Minimum Number is ${min}`;
             })
             $("#search").on("click",function(){
                  ans.innerHTML ="";
                  let searchid=null;
+                 for(let i = 1;i <=number ;i++){
+                    if(document.getElementById(`num${i}`).value ===""){
+                        ans.innerHTML ="Please Enter All inputs";
+                        return;
+                    }
+                 }
                   $(".input-box").removeClass("highlight");
                 let val=parseInt(prompt("Enter Value you want to search"));
                 let flag=1
@@ -97,6 +111,31 @@
                 for(let i = 1;i <=number ; i++){
                     document.getElementById(`num${i}`).value= "";
                 }
+            })
+            $("#prime").on("click",function(){
+                ans.innerHTML ="";
+                 for(let i = 1;i <=number ;i++){
+                    if(document.getElementById(`num${i}`).value ===""){
+                        ans.innerHTML ="Please Enter All inputs";
+                        return;
+                    }
+                 }
+                   $(".input-box").removeClass("highlight");
+                   for(let i = 1;i <=number;i++){
+                    let prime2=parseInt(document.getElementById(`num${i}`).value);
+                    let flag=1;
+                    for(let j =2;j < prime2 ;j++ ){
+                        if(prime2 % j ===0){
+                            flag=0;
+                            break;
+                        }
+                    }
+                    if(flag === 1){
+                        prime2=`#num${i}`;
+
+                    }
+                    $(prime2).addClass("highlight")
+                   }
             })
             
 
