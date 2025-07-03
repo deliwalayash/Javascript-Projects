@@ -29,9 +29,11 @@
                     document.getElementById(`num${i}`).value = parseInt(Math.random() *100);
                     // input.value = random;
                  }
+                   $("#random").addClass("highlight-box")
             })
             $("#max").on("click",function(){
                  $(".input-box").removeClass("highlight");
+                  $(".btn").removeClass("highlight-box")
                  ans.innerHTML ="";
                 let max=-Infinity;
                 let maxid=null;
@@ -48,9 +50,11 @@
                         return;
                 }
                     $(maxid).addClass("highlight")
+                      $("#max").addClass("highlight-box")
                     ans.innerHTML = `Maximum Number is ${max}`;
             })
             $("#min").on("click",function(){
+                $(".btn").removeClass("highlight-box")
                  $(".input-box").removeClass("highlight");
                  ans.innerHTML ="";
                  let minid=null;
@@ -68,10 +72,12 @@
                         return;
                 }
                 $(minid).addClass("highlight")
+                  $("#min").addClass("highlight-box")
                  ans.innerHTML = `Minimum Number is ${min}`;
             })
             $("#search").on("click",function(){
                  ans.innerHTML ="";
+                  $(".btn").removeClass("highlight-box")
                  let searchid=null;
                  for(let i = 1;i <=number ;i++){
                     if(document.getElementById(`num${i}`).value ===""){
@@ -96,9 +102,11 @@
                         ans.innerHTML = "The number is not in the list";
                     }
                     $(searchid).addClass("highlight")
+                      $("#search").addClass("highlight-box")
             })
             $("#sum").on("click",function(){
                  ans.innerHTML ="";
+                  $(".btn").removeClass("highlight-box")
                  let sum=0;
                   for(let i = 1;i <=number ;i++){
                     if(document.getElementById(`num${i}`).value ===""){
@@ -110,17 +118,21 @@
                 for(let i = 1;i <=number ; i++){
                     sum = sum + parseInt(document.getElementById(`num${i}`).value)
                 }
+                $("#sum").addClass("highlight-box")
                 ans.innerHTML = `The sum of All number:${sum}`;
             })
             $("#clr").on("click",function(){
                  ans.innerHTML ="";
+                  $(".btn").removeClass("highlight-box")
                   $(".input-box").removeClass("highlight");
                 for(let i = 1;i <=number ; i++){
                     document.getElementById(`num${i}`).value= "";
                 }
+                  $("#clr").addClass("highlight-box")
             })
             $("#prime").on("click",function(){
                 ans.innerHTML ="";
+                 $(".btn").removeClass("highlight-box")
                  for(let i = 1;i <=number ;i++){
                     if(document.getElementById(`num${i}`).value ===""){
                         ans.innerHTML ="Please Enter All inputs";
@@ -143,10 +155,12 @@
 
                     }
                     $(primeid).addClass("highlight")
+                      $("#prime").addClass("highlight-box")
                    }
             })
             $("#odd").on("click",function(){
                 ans.innerHTML ="";
+                 $(".btn").removeClass("highlight-box")
                   for(let i = 1;i <=number ;i++){
                     if(document.getElementById(`num${i}`).value ===""){
                         ans.innerHTML ="Please Enter All inputs";
@@ -161,9 +175,11 @@
                         $(oddid).addClass("highlight")
                     }
                 }
+                  $("#odd").addClass("highlight-box")
             })
             $("#even").on("click",function(){
                 ans.innerHTML ="";
+                 $(".btn").removeClass("highlight-box")
                   for(let i = 1;i <=number ;i++){
                     if(document.getElementById(`num${i}`).value ===""){
                         ans.innerHTML ="Please Enter All inputs";
@@ -178,9 +194,11 @@
                         $(evenid).addClass("highlight")
                     }
                 }
+                  $("#even").addClass("highlight-box")
             })
             $("#median").on("click",function(){
                 ans.innerHTML ="";
+                 $(".btn").removeClass("highlight-box")
                   for(let i = 1;i <=number ;i++){
                     if(document.getElementById(`num${i}`).value ===""){
                         ans.innerHTML ="Please Enter All inputs";
@@ -194,6 +212,25 @@
                 }
                  let median=sum / number;
                  ans.innerHTML = `Average of All number is ${median}`
+                   $("#median").addClass("highlight-box")
+            })
+            $("#refresh").on("click",function(){
+                  $(".input-box").removeClass("highlight")
+                let newnumber =parseInt(prompt("Enter Number of Boxes You want"))
+
+                if(isNaN(newnumber) || newnumber <=0){
+                    prompt("Invalid Input.Defaulting to 10 boxes")
+                    newnumber=10;
+                }
+
+                number=newnumber;
+                 $("#demo").html("");
+                let box=document.getElementById("demo");
+                for(let i = 1;i <=number;i++){
+                    box.innerHTML += `<input type="text" id="num${i}" class="input-box">`
+                }
+                ans.innerHTML="";
+
             })
             
 
