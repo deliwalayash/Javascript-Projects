@@ -6,17 +6,26 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-   background: #020024;
-background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    background-image: url('https://images.pexels.com/videos/3163534/free-video-3163534.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+   /* background: #020024;
+background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%); */
 }
 
 .main-wrapper{
     padding: 50px;
     max-width: 600px;
-    background: #22C1C3;
-background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+    /* background: #22C1C3;
+background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%); */
 padding: 20px;
 border-radius: 20px;
+  backdrop-filter: blur(2px) saturate(100%);
+
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
 
 }
 
@@ -47,11 +56,7 @@ border-radius: 20px;
 
 .btn {
   background: #3498db;
-  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-  background-image: -o-linear-gradient(top, #3498db, #2980b9);
-  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
   border-radius: 28px;
@@ -64,11 +69,7 @@ border-radius: 20px;
 
 .btn:hover {
   background: #3cb0fd;
-  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+
   text-decoration: none;
   color: black;
 }
@@ -98,3 +99,20 @@ border-radius: 20px;
   color: black;
   font-weight: 600;
 }
+.btn {
+  /* transform: translateY(-5px); */
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(0.95) ;
+}
+
+.card {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
