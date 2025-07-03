@@ -31,14 +31,14 @@ border-radius: 20px;
 
 .input-box {
   padding: 12px;
-  width: 50px;
+  width: 60px;
   border: none;
   border-radius: 12px;
   text-align: center;
   transition: 0.3s;
   background-color: rgba(255, 255, 255, 0.85);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-
+  cursor: p;
   font-size: 20px;
   font-weight: 600;
 }
@@ -55,7 +55,7 @@ border-radius: 20px;
 }
 
 .btn {
-  background: #3498db;
+  background: #03bdec;
 
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
