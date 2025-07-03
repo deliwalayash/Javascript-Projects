@@ -26,7 +26,7 @@
                 $(".input-box").removeClass("highlight");
                  for(i = 1;i <=number;i++){
                     // let random=parseInt( (Math.random() *100));
-                    document.getElementById(`num${i}`).value = parseInt(Math.random() *100);
+                    document.getElementById(`num${i}`).value = parseInt(Math.random() *99)+2;
                     // input.value = random;
                  }
                    $("#random").addClass("highlight-box")
