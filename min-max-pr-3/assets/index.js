@@ -1,6 +1,7 @@
     
         $(document).ready(function(){
             let number =parseInt(prompt("Enter How Many Boxes"))
+            
             if(isNaN(number) ||  number <= 0){
                 alert("Invalid Number || Creating Default 10 boxes")
                 number=10;
@@ -98,8 +99,14 @@
             })
             $("#sum").on("click",function(){
                  ans.innerHTML ="";
+                 let sum=0;
+                  for(let i = 1;i <=number ;i++){
+                    if(document.getElementById(`num${i}`).value ===""){
+                        ans.innerHTML ="Please Enter All inputs";
+                        return;
+                    }
+                 }
                   $(".input-box").removeClass("highlight");
-                let sum = 0;
                 for(let i = 1;i <=number ; i++){
                     sum = sum + parseInt(document.getElementById(`num${i}`).value)
                 }
@@ -130,12 +137,63 @@
                             break;
                         }
                     }
+                    let primeid;
                     if(flag === 1){
-                        prime2=`#num${i}`;
+                         primeid=`#num${i}`;
 
                     }
-                    $(prime2).addClass("highlight")
+                    $(primeid).addClass("highlight")
                    }
+            })
+            $("#odd").on("click",function(){
+                ans.innerHTML ="";
+                  for(let i = 1;i <=number ;i++){
+                    if(document.getElementById(`num${i}`).value ===""){
+                        ans.innerHTML ="Please Enter All inputs";
+                        return;
+                    }
+                 }
+                $(".input-box").removeClass("highlight")
+                for(let i = 1;i <=number ;i++){
+                    let odd=parseInt(document.getElementById(`num${i}`).value);
+                    if(odd % 2 !=0){
+                        let oddid=`#num${i}`;
+                        $(oddid).addClass("highlight")
+                    }
+                }
+            })
+            $("#even").on("click",function(){
+                ans.innerHTML ="";
+                  for(let i = 1;i <=number ;i++){
+                    if(document.getElementById(`num${i}`).value ===""){
+                        ans.innerHTML ="Please Enter All inputs";
+                        return;
+                    }
+                 }
+                $(".input-box").removeClass("highlight")
+                for(let i = 1;i <=number ;i++){
+                    let even=parseInt(document.getElementById(`num${i}`).value);
+                    if(even % 2 ===0){
+                        let evenid=`#num${i}`;
+                        $(evenid).addClass("highlight")
+                    }
+                }
+            })
+            $("#median").on("click",function(){
+                ans.innerHTML ="";
+                  for(let i = 1;i <=number ;i++){
+                    if(document.getElementById(`num${i}`).value ===""){
+                        ans.innerHTML ="Please Enter All inputs";
+                        return;
+                    }
+                 }
+                let sum=0;
+                 $(".input-box").removeClass("highlight")
+                   for(let i = 1;i <=number ; i++){
+                    sum = sum + parseInt(document.getElementById(`num${i}`).value)
+                }
+                 let median=sum / number;
+                 ans.innerHTML = `Average of All number is ${median}`
             })
             
 
