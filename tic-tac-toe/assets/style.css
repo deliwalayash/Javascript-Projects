@@ -4,26 +4,57 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    background: #22C1C3;
+background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+    color: brown;
+    /* background-image: url('');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; */
 }
 
-.board{
-    height: 620px;
-    width: 620px;
-    display: flex;
-    flex-wrap: wrap;
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
+    height: auto;
+    /* background-color: rgb(119, 0, 255); */
+    padding: 20px;
+    border-radius: 20px;
+   
+  
 
 }
-
 .cell{
-    height: 195px;
-    width: 195px;
-    background-color: rgb(208, 215, 158);
+    height: 100px;
+    width: 100px;
+
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
     font-size: 35px;
     border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    color: rgb(56, 42, 165);
+background-color: #e5e5f7;
+opacity: 0.8;
+background-color: #e5e5f7;
+opacity: 0.8;
+
+
+}
+.cell:hover{
+    transform: scaley(1.05);
+}
+
+.score-card{
+    background-color: rgb(142, 142, 216);
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 600;
+    
 }
 
