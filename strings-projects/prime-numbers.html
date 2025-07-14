@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <div class="wrapper">
+         <h1 class="text-center">Prime Numbers</h1>
+         <div id="demo"></div>
+         <!-- <input type="text" name="" id="ip1" class="form-control mt-3" placeholder="Enter input String"> -->
+         <!-- <label for="ip1" class="form-label"></label> -->
+    
+         <h3 id="ans" style="height: 50px;" class="text-center"></h3>
+        <div class="text-center">
+         <button class="btn btn-primary  mt-3" type="submit" id="sbt">Prime Check</button>
+         <button class="btn btn-primary  mt-3" type="submit" id="random">Random</button>
+    </div>
+   
+
+    </div>
+</body>
+      <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script>
+    
+     $(document).ready(function(){
+        let number=prompt("How Many Inputs You required")
+         let num=parseInt(number)
+                    let box=document.getElementById("demo")
+                    if( num <=0 || isNaN(num)){
+                        alert("Invalid Input || Creating 10 Default Input")
+                        num=10;
+                    }
+                    for(i = 0;i < num;i++){
+                        box.innerHTML += `<input type="text" id="num${i}" class="input-box">`
+                    }
+                   
+                $("#random").on("click",function(){
+                    $(".input-box").removeClass("highlight")
+                    for(let i = 0;i < num ;i++){
+                        document.getElementById(`num${i}`).value = parseInt((Math.random() *99)+ 2)
+                    }
+                })
+                $("#sbt").on("click",function(){
+                    let ans=document.getElementById("ans")
+                    let prime3=[]
+                    $(".input-box").removeClass("highlight")
+                    for(let i = 0; i < num;i++){
+                        let prime2=parseInt(document.getElementById(`num${i}`).value)
+                        let flag=1;
+                        for(let j = 2;j < prime2;j++){
+                            if(prime2 % j ==0){
+                                flag =0;
+                                break;
+                            }
+                        }
+                        let primeid;
+                        if(flag ==1){
+                            primeid=`#num${i}`
+                            prime3.push(prime2)
+                               $(primeid).addClass("highlight")
+                        }
+                     
+                        
+                    }
+                    ans.innerHTML = `The Prime Numbers Are ${prime3.join(", ")}`
+                })
+            })
+  </script>
+</html>

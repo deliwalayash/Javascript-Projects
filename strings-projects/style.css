@@ -2,9 +2,112 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
 }
 
 .wrapper{
    width: 500px;
+       background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
+
+.input-box {
+  padding: 12px;
+  width: 60px;
+  border: none;
+  border-radius: 12px;
+  text-align: center;
+  transition: 0.3s;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: rgb(127, 127, 241);
+  margin: 10px;
+}
+.highlight{
+  background-color: rgb(240, 25, 21);
+  color: white;
+}
+
+   .btn {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .btn:hover{
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+         #ans {
+            min-height: 50px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: 500;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 22px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-field::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .input-field:focus {
+            border-color: #4facfe;
+            box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        h1{
+            margin-bottom: 50px;
+        }
+
+       .green {
+    background-color: green !important;
+    background-image: none !important;
+}
+
+.red {
+    background-color: red !important;
+    background-image: none !important;
+}
+

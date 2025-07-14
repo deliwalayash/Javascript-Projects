@@ -10,7 +10,7 @@
 <body>
 
     <div class="wrapper">
-         <h1 class="text-center">Longest Word From String String</h1>
+         <h1 class="text-center">Remove Duplicate Elemnts</h1>
          <input type="text" name="" id="ip1" class="form-control mt-3" placeholder="Enter input String">
          <label for="ip1" class="form-label"></label>
     
@@ -26,20 +26,19 @@
   <script>
      $(document).ready(function(){
                 $("#sbt").on("click",function(){
-                 let input=document.getElementById("ip1")
-                 let ans=document.getElementById("ans")
-                 let str = input.value.split(" ")
-                 let longstr ;
-                 let longstrlength=0;
-                 for(let i = 0 ; i < str.length;i++){
-                    if(str[i].length > longstrlength){
-                        longstr = str[i]
-                        longstrlength=str[i].length
+                    let input1=document.getElementById("ip1")
+                    let ans=document.getElementById("ans")
+                    let str=input1.value.split("").sort()
+                    let key=str[0];
+                    let str2=[]
+                     str2.push(key)
+                    for(let i = 0;i < str.length;i++){
+                        if(key != str[i]){
+                            str2.push(str[i]);
+                            key = str[i];
+                        }
                     }
-                  
-                 }  
-                   ans.innerHTML = `The Longest String is : ${longstr}`
-
+                    ans.innerHTML =`Non Duplicate Elements Are :${str2.join(", ")}`
                 })
             })
   </script>

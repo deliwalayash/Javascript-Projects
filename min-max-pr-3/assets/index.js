@@ -155,7 +155,7 @@
 
                     }
                     $(primeid).addClass("highlight")
-                      $("#prime").addClass("highlight-box")
+                    //   $("#prime").addClass("highlight-box")
                    }
             })
             $("#odd").on("click",function(){

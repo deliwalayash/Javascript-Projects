@@ -11,9 +11,9 @@
 
     <div class="wrapper">
          <h1 class="text-center">Anagram String</h1>
-         <input type="text" name="" id="ip1" class="form-control mt-3" placeholder="Enter input String">
+         <input type="text" name="" id="ip1" class="form-control mt-3 input-field" placeholder="Enter input String">
          <label for="ip1" class="form-label"></label>
-         <input type="text" name="" id="ip2" class="form-control mt-3" placeholder="Enter input String">
+         <input type="text" name="" id="ip2" class="form-control mt-3 input-field" placeholder="Enter input String">
          <label for="ip2" class="form-label"></label>
          <h3 id="ans" style="height: 50px;" class="text-center"></h3>
     <div class="text-center">
@@ -26,17 +26,27 @@
       <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   <script>
      $(document).ready(function(){
+        
                 $("#sbt").on("click",function(){
                     let input1=document.getElementById("ip1")
                     let input2=document.getElementById("ip2")
                     let ans=document.getElementById("ans")
+                    $("#ans").removeClass("green red")
+                    if(input1.value.trim() == "" ||  input2.value.trim() == "" ){
+                         ans.innerHTML = "Please Input Both String"
+                         return;
+                    }
+
+
                     let sortedstr1=input1.value.split("").sort().join("")
                     let sortedstr2=input2.value.split("").sort().join("")
                     if(sortedstr1 == sortedstr2){
                         ans.innerHTML ="Both String Are Anagram String"
+                        $("#ans").addClass("green")
                     }
                     else{
                         ans.innerHTML = "Both String Are not Anagram"
+                        $("#ans").addClass("red")
                     }
                 })
             })
