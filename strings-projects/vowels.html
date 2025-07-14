@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <div class="wrapper">
+         <h1 class="text-center">Vowels and Consonants String</h1>
+         <input type="text" name="" id="ip1" class="form-control mt-3" placeholder="Enter input String">
+         <label for="ip1" class="form-label"></label>
+    
+         <h3 id="ans" style="height: 50px;" class="text-center "></h3>
+         <h3 id="ans2" style="height: 50px;" class="text-center "></h3>
+        <div class="text-center">
+         <button class="btn btn-primary  mt-3" type="submit" id="sbt">Submit</button>
+    </div>
+   
+
+    </div>
+</body>
+      <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script>
+     $(document).ready(function(){
+                $("#sbt").on("click",function(){
+                 let input=document.getElementById("ip1")
+                 let ans=document.getElementById("ans")
+                 let ans2=document.getElementById("ans2")
+            
+                 let str=input.value.trim().toLowerCase();
+                 let vowel=[]
+                 let vowelcount =0
+                 let consonant = []
+                 let consonantcount=0
+                 const regex=/[a-z]/
+                 if(str == ""){
+                    ans.innerHTML = "Please Enter Input"
+                    return;
+                 }
+                 
+                 for(let i = 0;i < str.length ; i++){
+                    let ch =str[i]
+                    if(regex.test(ch)){
+                         if((ch == "a" ) || (ch == "e") || (ch == "i") || (ch == "o") || (ch == "u")){
+                        vowel.push(ch);
+                        vowelcount++;
+                    }
+                    else{
+                        consonant.push(ch)
+                        consonantcount++;
+                    }
+
+                    }
+                   
+                 }
+                 ans.innerHTML = `Vovels are :${vowel.join(", ")} <br> VovelCount :${vowelcount}`
+                 ans2.innerHTML = `Consonats are:${consonant.join(", ")} <br> Consonant Count :${consonantcount}`
+
+                })
+            })
+  </script>
+</html>

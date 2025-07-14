@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <div class="wrapper">
+         <h1 class="text-center">Longest Word From String String</h1>
+         <input type="text" name="" id="ip1" class="form-control mt-3" placeholder="Enter input String">
+         <label for="ip1" class="form-label"></label>
+    
+         <h3 id="ans" style="height: 50px;" class="text-center"></h3>
+        <div class="text-center">
+         <button class="btn btn-primary  mt-3" type="submit" id="sbt">Submit</button>
+    </div>
+   
+
+    </div>
+</body>
+      <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script>
+     $(document).ready(function(){
+                $("#sbt").on("click",function(){
+                 let input=document.getElementById("ip1")
+                 let ans=document.getElementById("ans")
+                 let str = input.value.split(" ")
+                 let longstr=[] ;
+                 let longstrlength=0;
+                 for(let i = 0 ; i < str.length;i++){
+                    if(str[i].length > longstrlength){
+                        longstr = str[i]
+                        longstrlength=str[i].length
+                    }
+                  
+                 }  
+                   ans.innerHTML = `The Longest String is : ${longstr}`
+
+                })
+            })
+  </script>
+</html>

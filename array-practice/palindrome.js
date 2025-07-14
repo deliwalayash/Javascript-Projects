@@ -21,4 +21,6 @@
     let newstr4=str4.split("").reverse().join("")
     console.log(newstr4)
     console.log((str4 === newstr4) ? true : false)
+    let str5="hello world";
+    
     
