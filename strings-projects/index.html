@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Utilities Hub</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="new-style.css">
+</head>
+<body>
+    <div class="matrix-bg" id="matrix"></div>
+    
+    <div class="container">
+        <header class="header">
+            <h1 class="main-title glitch " data-text="{ DEV_TOOLKIT }">{ DEV_TOOLKIT }</h1>
+            <p class="subtitle">// Advanced string & array processing utilities</p>
+        </header>
+
+        <div class="section-divider">
+            <div class="section-title">~/String-processors</div>
+        </div>
+        <nav class="terminal-nav">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                </div>
+                <div class="terminal-title">~/string-utilities</div>
+            </div>
+            
+            <div class="nav-grid">
+                <a href="palindrome.html" class="nav-item" target="_blank">
+                    <div class="nav-item-header">
+                        <div class="nav-icon">⟲</div>
+                        <div class="nav-title">palindrome_check()</div>
+                    </div>
+                    <div class="nav-desc">Validates if string reads same forwards/backwards</div>
+                </a>
+
+                <a href="anagram.html" class="nav-item" target="_blank">
+                    <div class="nav-item-header">
+                        <div class="nav-icon">⟷</div>
+                        <div class="nav-title">anagram_verify()</div>
+                    </div>
+                    <div class="nav-desc">Compares two strings for anagram relationship</div>
+                </a>
+
+                <a href="uppercase.html" class="nav-item" target="_blank">
+                    <div class="nav-item-header">
+                        <div class="nav-icon">⇧</div>
+                        <div class="nav-title">to_uppercase()</div>
+                    </div>
+                    <div class="nav-desc">Transforms string characters to uppercase</div>
+                </a>
+
+                <a href="lowercase.html" class="nav-item" target="_blank">
+                    <div class="nav-item-header">
+                        <div class="nav-icon">⇩</div>
+                        <div class="nav-title">to_lowercase()</div>
+                    </div>
+                    <div class="nav-desc">Converts all characters to lowercase format</div>
+                </a>
+
+                <a href="toggelcase.html" class="nav-item" target="_blank">
+                    <div class="nav-item-header">
+                        <div class="nav-icon">⇅</div>
+                        <div class="nav-title">toggle_case()</div>
+                    </div>
+                    <div class="nav-desc">Inverts case of each character in string</div>
+                </a>
+
+                <a href="longestword.html" class="nav-item" target="_blank">
+                    <div class="nav-item-header">
+                        <div class="nav-icon">▬</div>
+                        <div class="nav-title">find_longest()</div>
+                    </div>
+                    <div class="nav-desc">Extracts word with maximum character length</div>
+                </a>
+
+                <a href="vowels.html" class="nav-item" target="_blank">
+                    <div class="nav-item-header">
+                        <div class="nav-icon">⚡</div>
+                        <div class="nav-title">count_letters()</div>
+                    </div>
+                    <div class="nav-desc">Analyzes vowel and consonant distribution</div>
+                </a>
+            </div>
+        </nav>
+
+        <div class="section-divider">
+            <div class="section-title">~/array-processors</div>
+        </div>
+
+        <nav class="terminal-nav">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                </div>
+                <div class="terminal-title">~/array-utilities</div>
+            </div>
+            
+            <div class="nav-grid">
+                <a href="second-largest.html" class="nav-item" target="_blank">
+                    <div class="nav-item-header">
+                        <div class="nav-icon">②</div>
+                        <div class="nav-title">find_second_extremes()</div>
+                    </div>
+                    <div class="nav-desc">Locates 2nd largest and 2nd smallest values</div>
+                </a>
+
+                <a href="prime-numbers.html" class="nav-item" target="_blank">
+                    <div class="nav-item-header">
+                        <div class="nav-icon">№</div>
+                        <div class="nav-title">extract_primes()</div>
+                    </div>
+                    <div class="nav-desc">Filters array to show only prime numbers</div>
+                </a>
+
+                <a href="duplicate-remove.html" class="nav-item" target="_blank">
+                    <div class="nav-item-header">
+                        <div class="nav-icon">◊</div>
+                        <div class="nav-title">remove_duplicates()</div>
+                    </div>
+                    <div class="nav-desc">Eliminates repeated elements, shows unique set</div>
+                </a>
+            </div>
+        </nav>
+
+        <footer class="footer">
+            <p>[ TOOLKIT v2.0 ] - Built for efficient string & array manipulation</p>
+        </footer>
+    </div>
+
+    <script>
+        // Matrix background effect
+        function createMatrixEffect() {
+            const matrix = document.getElementById('matrix');
+            const chars = '01';
+            let matrixText = '';
+            
+            for (let i = 0; i < 500; i++) {
+                matrixText += chars[Math.floor(Math.random() * chars.length)];
+                if (i % 50 === 0) matrixText += '\n';
+            }
+            
+            matrix.textContent = matrixText;
+            
+            setTimeout(() => {
+                matrix.style.opacity = '0.02';
+                setTimeout(() => {
+                    matrix.style.opacity = '0.03';
+                    createMatrixEffect();
+                }, Math.random() * 3000 + 2000);
+            }, Math.random() * 2000 + 1000);
+        }
+        
+        createMatrixEffect();
+    </script>
+</body>
+</html>

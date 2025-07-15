@@ -11,7 +11,7 @@
 
     <div class="wrapper">
          <h1 class="text-center">Uppercase String</h1>
-         <input type="text" name="" id="ip1" class="form-control mt-3" placeholder="Enter input String">
+         <input type="text" name="" id="ip1" class="form-control mt-3 input-field" placeholder="Enter input String">
          <label for="ip1" class="form-label"></label>
     
          <h3 id="ans" style="height: 50px;" class="text-center"></h3>
@@ -28,6 +28,11 @@
                 $("#sbt").on("click",function(){
                     let input1=document.getElementById("ip1")
                     let ans=document.getElementById("ans")
+                       if(input1.value.trim() ==""){
+                        ans.innerHTML ="Please Input String";
+                         $("#ans").addClass("red")
+                        return;
+                    }
                    let Uppercase=input1.value.toUpperCase();
                    ans.innerHTML = `${Uppercase}`
                 })
