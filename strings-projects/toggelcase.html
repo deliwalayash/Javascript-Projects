@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Toggle Case</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./style.css">
 </head>
@@ -11,7 +11,7 @@
 
     <div class="wrapper">
          <h1 class="text-center">ToggleCase String</h1>
-         <input type="text" name="" id="ip1" class="form-control mt-3" placeholder="Enter input String">
+         <input type="text" name="" id="ip1" class="form-control mt-3 input-field" placeholder="Enter input String">
          <label for="ip1" class="form-label"></label>
     
          <h3 id="ans" style="height: 50px;" class="text-center"></h3>
@@ -28,6 +28,10 @@
                 $("#sbt").on("click",function(){
                     let input1=document.getElementById("ip1")
                     let ans=document.getElementById("ans")
+                    if(input1.value.trim() ==  ""){
+                      ans.innerHTML = "Please Input String"
+                      return;
+                    }
                     let str1=input1.value.split("")
                     let str2 = [];
                     for(let i = 0;i < str1.length ; i++){
