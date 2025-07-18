@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+</head>
+<div id="demo" class="d-flex gap-2 container justify-content-center align-items-center" >
+
+</div>
+<body>
+    
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+    <script>
+        let box=document.getElementById("demo")
+        let library=[{
+            name:"champak",
+            author:"prakash",
+            isIssued:true,
+            imgUrl:"https://www.delhipress.in/assets/images/cover/sml/ce.jpg"
+        },
+        {
+            name:"safari",
+            author:"samachar",
+            isIssued:false,
+            imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgHewsze8qVL0KV7cA60vJg_RIPzw-zVoWSw&s"
+        },
+        {
+            name:"zagmag",
+            author:"sandesh",
+            isIssued:true,
+            imgUrl:"https://m.media-amazon.com/images/I/71EAvqY-g3L._UF1000,1000_QL80_.jpg"
+        }
+        ]
+
+        for(let i =0;i < library.length; i++){
+            box.innerHTML += `<div class="card" style="width: 18rem;">
+            <img src="${library[i].imgUrl}" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">${library[i].name}</h5>
+            <p class="card-text">${library[i].author}</p>
+            <p class="card-text">${library[i].isIssued ? 'Not Availabel' : 'Available'}</p> 
+            </div>
+            </div>`
+        }
+
+        
+        
+    </script>
+</body>
+</html>
