@@ -23,6 +23,7 @@
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
         <script>
             $(document).ready(function(){
+                
                 let tasklist = [];
                 function prioritycheck(priority){
                     switch(parseInt(priority)){
@@ -36,31 +37,43 @@
                             return "Unkown"
                     }
                 }
-                function attachdelete(){
-                    let buttons= document.querySelectorAll(".delete-btn")
-                    buttons.forEach((data) =>{
-                        data.addEventListener("click",function(){
-                            // alert(`This button is clicked ${this.id}`)
-
-                            let deleteid =parseInt(this.id)
-                            tasklist = tasklist.filter((data) =>{
-                                return (data.id != deleteid)
-                            })
-                            rendertask()
+                function deletetask(){
+                    $(".delete-btn").on("click",function(){
+                        let deleteid= parseInt(this.id)
+                        tasklist =tasklist.filter((data)=>{
+                            return (data.id != deleteid)
                         })
+                        rendertask()
+                    })
+                }
+                // function attachdelete(){
+                //     let buttons= document.querySelectorAll(".delete-btn")
+                //     buttons.forEach((data) =>{
+                //         data.addEventListener("click",function(){
+                //             // alert(`This button is clicked ${this.id}`)
+
+                //             let deleteid =parseInt(this.id)
+                //             tasklist = tasklist.filter((data) =>{
+                //                 return (data.id != deleteid)
+                //             })
+                //             rendertask()
+                //         })
                         
 
-                    })
-                    // rendertask()
-                }
+                //     })
+                //     // rendertask()
+                // }
                 function rendertask(){
                     let result=document.getElementById("result")
                     result.innerHTML = ""
                     tasklist.forEach((data) =>{
                         result.innerHTML += `<h1>Task is ${data.task} and Priority :${prioritycheck(data.priority)} <button id=${data.id} class="btn delete-btn btn-danger">Delete</button></h1>`
                     })
-                    attachdelete()
+                    // attachdelete()
+                    deletetask()
+                    
                 }
+                
                 $("#sbt").on("click",() =>{
                     let task = document.getElementById("task").value
                     let priority = document.getElementById("priority").value
@@ -77,6 +90,8 @@
                     //     result.innerHTML += `<h1>Task : ${data.task.toUpperCase()} Priority :${prioritycheck(data.priority)} <button id=${data.id} class="btn - btn-danger delete-btn">Delete</button> </h1> `
                     // }) 
                 })
+                
+                
             })
 
         </script>
