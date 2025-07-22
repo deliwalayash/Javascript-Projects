@@ -4,4 +4,4 @@ arr.sort((x,y)=>{
  return x-y;
 })
 
-console.log(arr) // it sorts the array,original array
+console.log(arr.split("")) // it sorts the array,original array
