@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+
+</head>
+<style>
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: rgb(42, 38, 38);
+    }
+    .main-wrapper{
+        width: 600px;
+        background-color: rgb(25, 19, 19);
+        padding: 50px;
+        border-radius: 50px;
+        /* height: 600px; */
+    }
+   
+</style>
+<body>
+   
+    <div class="main-wrapper mt-5 d-flex flex-column gap-3">
+         <h1 class="text-center text-white">To Do list</h1>
+        <input type="text" id="task" class="form-control">
+    <select name="priority" id="priority" class="form-select">
+        <option value="">Please Enter Priority</option>
+        <option value="1">High</option>
+        <option value="2">Medium</option>
+        <option value="3">Low</option>
+    </select>
+   <div class="text-center">
+ <button type="button" id="btn" class="btn btn-secondary " style="width: 100px;">+ADD</button>
+   </div>
+   <div>
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th>Total Task</th>
+                <th>High Priority</th>
+                <th>Medium Priority</th>
+                <th>Low Priority</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="total">0</td>
+                <td id="high">0</td>
+                <td id="medium">0</td>
+                <td id="low">0</td>
+            </tr>
+        </tbody>
+
+    </table>
+   </div>
+   
+    <div>
+        <!-- <h5 id="result" class="text-white"></h5> -->
+         <table class="table table-borderless table-dark table-responsive">
+            <thead>
+              <tr class="text-white text-center">
+                <th>Task</th>
+                <th>Priority</th>
+                <th>Action</th>
+              </tr>
+              <tbody id="result"></tbody>
+            </thead>
+
+         </table>
+    </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            let tasklist=[]
+            let result = document.getElementById("result")
+            function updateCounter(){
+                let totaltask=tasklist.length
+                let high=tasklist.filter((data)=>{
+                    return (data.priority==1)
+                }).length
+                let medium=tasklist.filter((data)=>{
+                    return (data.priority==2)
+                }).length
+                let low=tasklist.filter((data)=>{
+                     return (data.priority==3)
+                }).length
+                document.getElementById("total").innerHTML=totaltask
+                document.getElementById("high").innerHTML=high
+                document.getElementById("medium").innerHTML=medium
+                document.getElementById("low").innerHTML=low
+            }
+            function checkpriority(priority){
+                let priority1=parseInt(priority)
+                switch(priority1){
+                    case 1:{
+                        return `<span class="text-danger">High</span>`
+                    }
+                    case 2:{
+                        return `<span class="text-success">Medium</span>`
+                    }
+                    case 3:{
+                        return `<span class="text-warning">Low</span>`
+                    }
+                }
+            }
+            function deletetask(){
+                $(".delete-btn").on("click",function(){
+                    let deleteid=parseInt(this.id)
+                    // console.log(deleteid)
+                    tasklist=tasklist.filter((data) =>{
+                        return (data.id !=deleteid)
+                    })
+                    rendertask()
+                    updateCounter()
+                   
+                })
+            }
+            function rendertask(){
+                result.innerHTML=""
+                tasklist.forEach((data) =>{
+                        result.innerHTML += `<tr>
+                        <td>Task Name: ${data.task.toUpperCase()} </td>
+                        <td>Priority:${checkpriority(data.priority)} </td>
+                        <td>Action:   <button class="btn btn-danger delete-btn" id="${data.id}">Delete🗑</button>   </td>
+                        
+                        </tr>`
+                })
+                deletetask()
+                updateCounter()
+            }
+            $("#btn").on("click",function(){
+                let task = document.getElementById("task").value
+                let priority=document.getElementById("priority").value
+                if(task.trim()==""){
+                    alert("Please Enter Task")
+                    return
+                }
+                if(priority.trim()==""){
+                    alert("Please Enter Priority")
+                    return
+                }
+                let taskObj={
+                    id:Date.now(),
+                    task,
+                    priority,
+                }
+
+                tasklist.push(taskObj)
+                rendertask()
+            })
+        })
+    </script>
+</body>
+</html>
