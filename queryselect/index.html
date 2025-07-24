@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <div class="box"></div>
+  <br />
+  <button id="btn">Click Me</button>
+
+  <script>
+    let btn=document.getElementById("btn")
+    let box=document.querySelector(".box")
+    btn.addEventListener("click",function(){
+        // box.classList.toggle("red")
+        let r = parseInt(Math.random()*255)
+        let g = parseInt(Math.random()*255)
+        let b = parseInt(Math.random()*255)
+        box.style.backgroundColor = `rgb(${r},${g},${b})`
+        box.classList.add("tras")
+    })
+  </script>
+
+</body>
+</html>
