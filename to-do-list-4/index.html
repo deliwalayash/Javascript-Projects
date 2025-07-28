@@ -11,47 +11,70 @@
 </head>
 <style>
     body{
-        display: flex;
-        align-items: center;
-        justify-content: center;
+
         height: 100vh;
         background-color: rgb(42, 38, 38);
     }
-    .main-wrapper{
-        width: 600px;
-        background-color: rgb(25, 19, 19);
-        padding: 50px;
-        border-radius: 50px;
-        /* height: 600px; */
+  
+    .card-2{
+        padding: 30px;
+        background-color: #212529;
+        border-radius: 10px;
+        animation: fadein  0.7s;
     }
+
+    @keyframes fadein{
+        0%{
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        100%{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+    .card-3{
+        animation: fadein 0.7s;
+    }
+    .table-css{
+        padding: 20px;
+        overflow: hidden;
+    }
+    #result tr{
+        animation: fadein 0.7s;
+         background-color: #1f1f1f;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    }
+   
    
 </style>
 <body>
    
-    <div class="main-wrapper mt-5 d-flex flex-column gap-3">
-         <h1 class="text-center text-white">To Do list</h1>
-        <input type="text" id="task" class="form-control">
-    <select name="priority" id="priority" class="form-select">
-        <option value="">Please Enter Priority</option>
-        <option value="1">High</option>
-        <option value="2">Medium</option>
-        <option value="3">Low</option>
-    </select>
-   <div class="text-center">
- <button type="button" id="btn" class="btn btn-secondary " style="width: 100px;">+ADD</button>
-   </div>
-   <div>
-    <table class="table table-dark table-hover">
-        <thead>
-            <tr>
+    <div class="container mt-5  gap-3">
+         <h1 class="text-center text-white">📝 To Do list</h1>
+       <div class="card-2 d-flex gap-3 mb-3">
+                <input type="text" id="task" class="form-control" placeholder="Enter Your Task Here">
+                <select name="priority" id="priority" class="form-select">
+                <option value="">Please Enter Priority</option>
+                <option value="1">High</option>
+                <option value="2">Medium</option>
+                <option value="3">Low</option>
+                </select>
+                <button type="button" id="btn" class="btn btn-primary " style="width: 100px;">+ADD</button>
+        </div>
+        <div>
+                 <table class="table table-dark ">
+                <thead>
+                 <tr class="text-center">
                 <th>Total Task</th>
                 <th>High Priority</th>
                 <th>Medium Priority</th>
                 <th>Low Priority</th>
-            </tr>
-        </thead>
+                 </tr>
+                </thead>
         <tbody>
-            <tr>
+            <tr class="text-center">
                 <td id="total">0</td>
                 <td id="high">0</td>
                 <td id="medium">0</td>
@@ -60,22 +83,23 @@
         </tbody>
 
     </table>
-   </div>
+        </div>
    
-    <div>
+        <div>
         <!-- <h5 id="result" class="text-white"></h5> -->
-         <table class="table table-borderless table-dark table-responsive">
-            <thead>
+         <table class="table  table-dark table-responsive card-3">
+            <thead >
               <tr class="text-white text-center">
                 <th>Task</th>
                 <th>Priority</th>
                 <th>Action</th>
               </tr>
-              <tbody id="result"></tbody>
+             
             </thead>
+             <tbody id="result" class="text-center fw-bold"></tbody>
 
          </table>
-    </div>
+        </div>
     </div>
 
 
@@ -129,14 +153,25 @@
             }
             function rendertask(){
                 result.innerHTML=""
+                
                 tasklist.forEach((data) =>{
-                        result.innerHTML += `<tr>
-                        <td>Task Name: ${data.task.toUpperCase()} </td>
-                        <td>Priority:${checkpriority(data.priority)} </td>
-                        <td>Action:   <button class="btn btn-danger delete-btn" id="${data.id}">Delete🗑</button>   </td>
-                        
-                        </tr>`
+                        let tr=document.createElement("tr")
+                        // tr.classList.add("card-3")
+                        tr.innerHTML=`<td>Task Name: ${data.task.toUpperCase()} </td>
+                        <td>${checkpriority(data.priority)} </td>
+                        <td> <button class="btn btn-danger delete-btn" id="${data.id}">Delete🗑</button>   </td>`;
+                        result.append(tr)  
+
                 })
+                        
+                // tasklist.forEach((data) =>{
+                //         result.innerHTML += `<tr>
+                //         <td>Task Name: ${data.task.toUpperCase()} </td>
+                //         <td>Priority:${checkpriority(data.priority)} </td>
+                //         <td>Action:   <button class="btn btn-danger delete-btn" id="${data.id}">Delete🗑</button>   </td>
+                        
+                //         </tr>`
+                // })
                 deletetask()
                 updateCounter()
             }
