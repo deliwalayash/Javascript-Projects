@@ -10,17 +10,22 @@
 
 </head>
 <style>
+    *{
+        font-size: 18px;
+    }
     body{
 
         height: 100vh;
-        background-color: rgb(42, 38, 38);
+        background-color: rgb(18, 17, 17);
     }
+   
   
     .card-2{
         padding: 30px;
         background-color: #212529;
         border-radius: 10px;
         animation: fadein  0.7s;
+    
     }
 
     @keyframes fadein{
@@ -35,11 +40,9 @@
     }
     .card-3{
         animation: fadein 0.7s;
+    
     }
-    .table-css{
-        padding: 20px;
-        overflow: hidden;
-    }
+   
     #result tr{
         animation: fadein 0.7s;
          background-color: #1f1f1f;
@@ -48,18 +51,19 @@
     }
    
    
+   
 </style>
 <body>
    
     <div class="container mt-5  gap-3">
-         <h1 class="text-center text-white">📝 To Do list</h1>
+         <h1 class="text-center text-white mb-4">📝 To Do list</h1>
        <div class="card-2 d-flex gap-3 mb-3">
                 <input type="text" id="task" class="form-control" placeholder="Enter Your Task Here">
                 <select name="priority" id="priority" class="form-select">
                 <option value="">Please Enter Priority</option>
-                <option value="1">High</option>
-                <option value="2">Medium</option>
-                <option value="3">Low</option>
+                <option value="1">🔴High</option>
+                <option value="2">🟢Medium</option>
+                <option value="3">🟡Low</option>
                 </select>
                 <button type="button" id="btn" class="btn btn-primary " style="width: 100px;">+ADD</button>
         </div>
@@ -93,6 +97,7 @@
                 <th>Task</th>
                 <th>Priority</th>
                 <th>Action</th>
+                <th>Update</th>
               </tr>
              
             </thead>
@@ -108,6 +113,7 @@
     <script>
         $(document).ready(function(){
             let tasklist=[]
+            let updateid=null;
             let result = document.getElementById("result")
             function updateCounter(){
                 let totaltask=tasklist.length
@@ -124,6 +130,20 @@
                 document.getElementById("high").innerHTML=high
                 document.getElementById("medium").innerHTML=medium
                 document.getElementById("low").innerHTML=low
+            }
+            function updatetask(){
+                $(".update-btn").on("click",function(){
+                     updateid=parseInt(this.id)
+                    let tasktoedit=tasklist.find((data)=>{
+                        return (data.id == updateid)
+                    })
+
+                      $("#task").val(tasktoedit.task);
+                     $("#priority").val(tasktoedit.priority);
+                    $("#btn").text("UPDATE");
+                   
+                })
+
             }
             function checkpriority(priority){
                 let priority1=parseInt(priority)
@@ -159,7 +179,8 @@
                         // tr.classList.add("card-3")
                         tr.innerHTML=`<td>Task Name: ${data.task.toUpperCase()} </td>
                         <td>${checkpriority(data.priority)} </td>
-                        <td> <button class="btn btn-danger delete-btn" id="${data.id}">Delete🗑</button>   </td>`;
+                        <td> <button class="btn btn-danger delete-btn" id="${data.id}">Delete🗑</button> </td>
+                        <td><button class="btn btn-warning update-btn" id="${data.id}">Update🛒</button></td>`;
                         result.append(tr)  
 
                 })
@@ -174,6 +195,7 @@
                 // })
                 deletetask()
                 updateCounter()
+                updatetask()
             }
             $("#btn").on("click",function(){
                 let task = document.getElementById("task").value
@@ -191,9 +213,31 @@
                     task,
                     priority,
                 }
+                
+    if (updateid !== null) {
+        // update mode
+        let taskToUpdate = tasklist.find((data) => data.id === updateid);
+        taskToUpdate.task = task;
+        taskToUpdate.priority = priority;
 
-                tasklist.push(taskObj)
-                rendertask()
+        updateid = null;
+        $("#btn").text("+ADD");
+    } else {
+        // normal add
+        let taskObj = {
+            id: Date.now(),
+            task,
+            priority,
+        };
+        tasklist.push(taskObj);
+    }
+
+    $("#task").val("");       // clear input
+    $("#priority").val("");   // clear input
+    rendertask();
+
+                // tasklist.push(taskObj)
+                // rendertask()
             })
         })
     </script>
