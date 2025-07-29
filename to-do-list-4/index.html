@@ -39,16 +39,28 @@
         }
     }
     .card-3{
-        animation: fadein 0.7s;
+        animation: fadein2 0.7s;
     
     }
+    
+    @keyframes fadein2{
+
+        0%{
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+         100%{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
    
-    #result tr{
+    /* #result tr{
         animation: fadein 0.7s;
          background-color: #1f1f1f;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(255,255,255,0.1);
-    }
+    } */
    
    
    
@@ -101,7 +113,7 @@
               </tr>
              
             </thead>
-             <tbody id="result" class="text-center fw-bold"></tbody>
+             <tbody id="result" class="text-center fw-bold "></tbody>
 
          </table>
         </div>
@@ -176,8 +188,8 @@
                 
                 tasklist.forEach((data) =>{
                         let tr=document.createElement("tr")
-                        // tr.classList.add("card-3")
-                        tr.innerHTML=`<td>Task Name: ${data.task.toUpperCase()} </td>
+                        tr.classList.add("card-2")
+                        tr.innerHTML=`<td>${data.task.toUpperCase()} </td>
                         <td>${checkpriority(data.priority)} </td>
                         <td> <button class="btn btn-danger delete-btn" id="${data.id}">Delete🗑</button> </td>
                         <td><button class="btn btn-warning update-btn" id="${data.id}">Update🛒</button></td>`;
@@ -231,7 +243,8 @@
         };
         tasklist.push(taskObj);
     }
-
+        task=""
+        priority=""
     $("#task").val("");       // clear input
     $("#priority").val("");   // clear input
     rendertask();

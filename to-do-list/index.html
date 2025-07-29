@@ -7,17 +7,62 @@
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
 </head>
-<body>
 
-        <input type="text" name="" id="task">
-        <select name="" id="priority" required  >
-            <option value="" >Pleae Enter Priority</option>
-            <option value="1" >High</option>
-            <option value="2" >Medium</option>
-            <option value="3" >low</option>
-        </select>
-        <button type="submit" id="sbt">+ ADD</button>
-        <div id="result" ></div>
+<style>
+  body{
+    background-color: black;
+  }
+</style>
+<body>
+        <div class="container mt-5">
+            <h1 class="text-center mb-5 text-white">To Do list</h1>
+            <div class="d-flex gap-3 my-3">
+                 <input type="text" name="" id="task" class="form-control w-50" placeholder="Please Enter Task">
+                <select name="" id="priority" required class="form-select w-50" >
+                     <option value="" >Please Enter Priority</option>
+                     <option value="1" >High</option>
+                     <option value="2" >Medium</option>
+                     <option value="3" >low</option>
+                </select>
+                <button type="submit" id="sbt" class="btn btn-primary" style="width: 150px;">+ ADD</button>
+            </div>
+            <table class="table table-dark">
+                <thead>
+                    <tr class="text-center">
+                        <th>Total task</th>
+                        <th>High Priority task</th>
+                        <th>Medium Priority task</th>
+                        <th>Low Priority task</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center">
+                        <td id="total">0</td>
+                        <td id="high">0</td>
+                        <td id="medium">0</td>
+                        <td id="low">0</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        <table class="table table-dark">
+            <thead>
+                <tr class="text-center">
+                <th>Task</th>
+                <th>Priority</th>
+                <th>Delete</th>
+                <th>Update</th>
+                </tr>    
+            </thead>
+            <tbody id="result">
+
+            </tbody>
+
+        </table>
+
+        </div>
+       
+            
     
 
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
@@ -25,6 +70,47 @@
             $(document).ready(function(){
                 
                 let tasklist = [];
+
+                function updatetask(){
+                    $(".update-btn").on("click",function(){
+                        let updateid=parseInt(this.id)
+                        console.log(updateid)
+
+                        let updatetaskobj=tasklist.find((data) =>{
+                            return (data.id == updateid)
+                        })
+
+
+                    })
+                }
+                function updatecounter(){
+                    let hightask=0
+                    let mediumtask=0
+                    let lowtask=0
+                    let total=document.getElementById("total")
+                    let high=document.getElementById("high")
+                    let medium=document.getElementById("medium")
+                    let low=document.getElementById("low")
+
+                    tasklist.forEach((data)=>{
+                        if(data.priority ==1){
+                            hightask++
+                        }
+                        else if(data.priority ==2){
+                            mediumtask++
+                        }
+                        else{
+                            lowtask++
+                        }
+                    })
+
+                    total.innerHTML=tasklist.length
+                    high.innerHTML=hightask
+                    medium.innerHTML=mediumtask
+                    low.innerHTML=lowtask
+
+
+                }
                 function prioritycheck(priority){
                     switch(parseInt(priority)){
                         case 1:
@@ -46,32 +132,24 @@
                         rendertask()
                     })
                 }
-                // function attachdelete(){
-                //     let buttons= document.querySelectorAll(".delete-btn")
-                //     buttons.forEach((data) =>{
-                //         data.addEventListener("click",function(){
-                //             // alert(`This button is clicked ${this.id}`)
-
-                //             let deleteid =parseInt(this.id)
-                //             tasklist = tasklist.filter((data) =>{
-                //                 return (data.id != deleteid)
-                //             })
-                //             rendertask()
-                //         })
-                        
-
-                //     })
-                //     // rendertask()
-                // }
+                
                 function rendertask(){
                     let result=document.getElementById("result")
                     result.innerHTML = ""
-                    tasklist.forEach((data) =>{
-                        result.innerHTML += `<h1>Task is ${data.task} and Priority :${prioritycheck(data.priority)} <button id=${data.id} class="btn delete-btn btn-danger">Delete</button></h1>`
-                    })
-                    // attachdelete()
-                    deletetask()
                     
+                    tasklist.forEach((data) =>{
+               
+
+                        result.innerHTML += `<tr class="text-center">
+                            <td>${data.task}</td>
+                            <td>${prioritycheck(data.priority)}</td>
+                            <td><button class="btn btn-danger delete-btn" id="${data.id}">Delete</button></td>
+                            <td><button class="btn btn-warning update-btn" id="${data.id}">Update</td>
+                            </tr>`
+                    })
+                    deletetask()
+                    updatecounter()
+                    updatetask()
                 }
                 
                 $("#sbt").on("click",() =>{
@@ -81,11 +159,11 @@
                         id:Date.now(),
                         task,
                         priority,
-                    }
-            
+                    }          
                     tasklist.push(taskObj)
                     rendertask()
-                   
+                    $("#task").val("")                   
+                    $("#priority").val("")                   
                 })
                 
                 
