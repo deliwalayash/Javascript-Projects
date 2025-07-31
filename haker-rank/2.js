@@ -8,3 +8,10 @@ let newarr= newstr.map((data)=>{
 })
 
 console.log(newarr.join(" "))
+
+let newarr2 = newstr.map((item)=>{
+    return item.slice(0, item.length-1) + item[item.length-1].toUpperCase()
+
+})
+
+console.log(newarr2);
