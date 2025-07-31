@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" />
+
+</head>
+<style>
+    body{
+        background-color: black;
+    }
+    *{
+        font-family:sans-serif;
+        font-size: 20px;
+        color: white
+    }
+   
+/* Style the selected box */
+.nice-select {
+  background-color: #111 !important;
+  color: #fff !important;
+  border: 1px solid #888;
+}
+
+/* Style dropdown options list */
+.nice-select .list {
+  background-color: #111 !important;
+  border: 1px solid #555;
+  color: white;
+}
+
+/* Individual option styles */
+.nice-select .option {
+  color: white;
+  background-color: #111;
+}
+
+.nice-select .option:hover,
+.nice-select .option.focus,
+.nice-select .option.selected.focus {
+  background-color: #444 !important;
+  color: #fff !important;
+}
+
+/* Dropdown arrow */
+.nice-select::after {
+  border-color: white transparent transparent transparent;
+}
+.container-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 20px;
+}
+
+aside {
+  width: 35%;
+  height: 100vh;
+  align-items: center;
+  display: flex;
+}
+
+.main {
+  width: 65%;
+}
+
+
+  
+</style>
+<body>  
+   
+       
+        
+    <div class="container-main">
+         <aside>
+        <div class="aside d-flex flex-column gap-3">
+         <h1 class="text-center text-white mt-4">Student Management System</h1>
+        <div class="d-flex gap-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" class="form-control w-50">
+        </div>
+        <div class="d-flex gap-3">
+        <label for="grid" class="form-label">GRID</label>
+        <input type="number" id="grid" class="form-control w-50">
+        </div>
+        <div class="d-flex gap-3">
+        <label for="age" class="form-label">Age</label>
+        <input type="number" id="age" class="form-control w-50">
+        </div>
+        <div class="d-flex gap-3">
+        <label for="gender" class="form-label">Gender</label>
+        <label for="male">
+        <input type="radio" name="gender" id="male" class="mx-2" value="Male">Male
+        </label>
+        <label for="female">
+        <input type="radio" name="gender" id="female" class="mx-2"  value="Female">Female
+        </label>
+       
+        </div>
+        <div class="d-flex gap-3">
+            <label for="course" class="form-label">Course</label>
+            <select class="text-black" id="course">
+                <option value="">Please Select Course</option>
+                <option value="FSD">Full Stack Developement</option>
+                <option value="UI/UX">UI / UX DESIGN</option>
+                <option value="Ai/Ml">AI / ML </option>
+            </select>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary" id="sbt">Submit</button>
+        </div>
+       </div>
+
+    </aside>
+       
+       <div class="main">
+         <table class="table table-dark">
+            <thead>
+                <tr class="text-center">
+                    <th>Name</th>
+                    <th>Grid</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Course</th>
+                    <th>Action</th>
+                </tr> 
+            </thead>
+            <tbody id="result">
+
+            </tbody>
+
+        </table>
+       </div>
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+<script>
+    $(document).ready(function() {
+        let students= []
+        $('select').niceSelect();
+        let result=document.getElementById("result")
+        const gridregex=/^\d{4}$/
+        class Student{
+            constructor(name,grid,gender,age,course){
+                this.id=Date.now()
+                this.name=name
+                this.grid=grid
+                this.gender=gender
+                this.age=age
+                this.course=course
+            }
+        }
+        function deletestudent(){
+            document.querySelectorAll(".delete-btn").forEach((btn)=>{
+                btn.addEventListener("click",function(){
+                    let deleteid=parseInt(this.id)
+                       students = students.filter((data) => data.id != deleteid);
+
+                    insertstudentdetails();
+                })
+            })
+        }
+        function insertstudentdetails(){
+            result.innerHTML=""
+            students.forEach((data) =>{
+                result.innerHTML += `<tr class="text-center">
+                    <td>${data.name}</td>
+                    <td>${data.grid}</td>
+                    <td>${data.gender}</td>
+                    <td>${data.age}</td>
+                    <td>${data.course}</td>
+                    <td><button class="btn btn-danger delete-btn" id=${data.id}>Delete🗑</button></td>
+                    </tr>`
+            })
+            deletestudent()
+
+        }
+        document.getElementById("sbt").addEventListener("click",function(){
+            let name=document.getElementById("name").value
+            let grid=document.getElementById("grid").value
+            let gender=document.querySelector(`input[name ="gender"]:checked`)?.value
+            let age=document.getElementById("age").value
+            let course=document.getElementById("course").value
+
+            const stu = new Student(name,grid,gender,age,course)
+
+            if(!gridregex.test(grid)){
+                alert("Pleass Enter $ digit Grid")
+            }            students.forEach((data) =>{
+                if(data.grid == grid){
+                    alert("Grid is Same,Please Make New Grid")
+                    return
+                }
+            })
+            students.push(stu)
+
+            insertstudentdetails()
+            // $("#name").val("")
+            // $("#grid").val("")
+            // $("#age").val("")
+            //   $("input[name='gender']").prop("checked", false);
+            //     $("#course").val("").niceSelect("update");
+            
+        })
+
+
+    });
+</script>
+
+</body>
+
+
+</html>
