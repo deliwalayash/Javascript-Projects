@@ -58,14 +58,15 @@
 }
 
 aside {
-  width: 35%;
+  width: 30%;
   height: 100vh;
   align-items: center;
   display: flex;
 }
 
 .main {
-  width: 65%;
+  width: 70%;
+ 
 }
 
 
@@ -81,15 +82,15 @@ aside {
          <h1 class="text-center text-white mt-4">Student Management System</h1>
         <div class="d-flex gap-3">
         <label for="name" class="form-label">Name</label>
-        <input type="text" id="name" class="form-control w-50">
+        <input type="text" id="name" class="form-control w-75">
         </div>
         <div class="d-flex gap-3">
         <label for="grid" class="form-label">GRID</label>
-        <input type="number" id="grid" class="form-control w-50">
+        <input type="number" id="grid" class="form-control w-75">
         </div>
         <div class="d-flex gap-3">
-        <label for="age" class="form-label">Age</label>
-        <input type="number" id="age" class="form-control w-50">
+        <label for="age" class="form-label">Age : </label>
+        <input type="number" id="age" class="form-control w-75">
         </div>
         <div class="d-flex gap-3">
         <label for="gender" class="form-label">Gender</label>
@@ -115,7 +116,7 @@ aside {
         </div>
        </div>
 
-    </aside>
+         </aside>
        
        <div class="main">
          <table class="table table-dark">
@@ -145,6 +146,8 @@ aside {
 <script>
     $(document).ready(function() {
         let students= []
+        let isediting=false
+        let editingid=null
         $('select').niceSelect();
         let result=document.getElementById("result")
         const gridregex=/^\d{4}$/
@@ -157,6 +160,25 @@ aside {
                 this.age=age
                 this.course=course
             }
+        }
+        function updatetask(){
+            document.querySelectorAll(".update-btn").forEach((btn)=>{
+                btn.addEventListener("click",function(){
+                    let updateid= parseInt(this.id)
+                    let studentupdate=students.find((data)=>{
+                        return data.id ==updateid
+                    })
+                    $("#name").val(studentupdate.name)
+                    $("#grid").val(studentupdate.grid)
+                    $("#age").val(studentupdate.age)
+                    $("#course").val(studentupdate.course)
+                    isediting=true
+                    editingid=updateid
+                    $("#sbt").text("Update")
+                    
+                })
+            })
+
         }
         function deletestudent(){
             document.querySelectorAll(".delete-btn").forEach((btn)=>{
@@ -177,9 +199,12 @@ aside {
                     <td>${data.gender}</td>
                     <td>${data.age}</td>
                     <td>${data.course}</td>
-                    <td><button class="btn btn-danger delete-btn" id=${data.id}>Delete🗑</button></td>
+                    <td><button class="btn btn-danger delete-btn" id=${data.id}>Delete🗑</button>
+                        <button class="btn btn-warning update-btn" id=${data.id}>Update🛒</button>
+                        </td>
                     </tr>`
             })
+            updatetask()
             deletestudent()
 
         }
@@ -192,15 +217,34 @@ aside {
 
             const stu = new Student(name,grid,gender,age,course)
 
-            if(!gridregex.test(grid)){
-                alert("Pleass Enter $ digit Grid")
-            }            students.forEach((data) =>{
-                if(data.grid == grid){
-                    alert("Grid is Same,Please Make New Grid")
-                    return
-                }
-            })
+            // if(!gridregex.test(grid)){
+            //     alert("Pleass Enter 4 digit Grid")
+            // }            students.forEach((data) =>{
+            //     if(data.grid == grid){
+            //         alert("Grid is Same,Please Make New Grid")
+            //         return
+            //     }
+            // })
+
+            if(isediting){
+                let stu=students.find((data)=>{
+                    return data.id==editingid
+                })
+
+                stu.name=name
+                stu.grid=grid
+                stu.gender=gender
+                stu.age=age
+                stu.course=course
+
+                isediting=false
+                editingid=null
+                $("sbt").text("Submit")
+            }
+            else{
             students.push(stu)
+            }
+            
 
             insertstudentdetails()
             // $("#name").val("")
