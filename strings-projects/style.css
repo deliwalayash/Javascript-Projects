@@ -24,6 +24,7 @@ body{
 .input-box {
   padding: 12px;
   width: 60px;
+  aspect-ratio: 1;
   border: none;
   border-radius: 12px;
   text-align: center;
