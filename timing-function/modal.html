@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+
+<!-- Modal -->
+<div class="modal fade"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quibusdam maxime illum ipsam neque nam pariatur sint sit excepturi ipsum totam rem in porro, commodi eius reiciendis expedita nostrum deleniti nihil eligendi libero! Itaque quidem laborum illum doloribus quisquam tempora nesciunt, animi, sequi minus voluptatum sint voluptatibus. Nihil sapiente accusamus quam quae? Minima, ullam, voluptas doloremque ipsa itaque dolore necessitatibus voluptatem odio a voluptatum unde quo nobis saepe quidem consectetur hic dignissimos aliquid nesciunt reprehenderit dolores officiis vero fuga ex sequi! Libero, voluptatem ea tempore odit itaque culpa illum enim voluptatibus quibusdam facere aliquam a temporibus, iure dolor obcaecati, laudantium nihil tempora vitae animi. Amet nam rerum repellat fuga minus recusandae numquam nihil consequuntur voluptatem? Blanditiis sunt voluptatibus obcaecati ut commodi quae totam suscipit quos ex ea, animi possimus. Repudiandae et voluptates deleniti facere aspernatur consectetur iure nulla nam. Esse officia libero perspiciatis iure qui possimus assumenda cumque illo laboriosam, non ipsum consequuntur deleniti vel corporis atque nisi. Nulla quidem molestiae atque laudantium omnis sed doloribus iure consectetur ut nam aliquam, vel deleniti molestias consequuntur natus quibusdam. Illo provident eum culpa, ea tempora facilis aliquam id magni ab debiti
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        setTimeout(()=>{
+        var myModal = new bootstrap.Modal(document.getElementById('myModal'))
+        myModal.show()
+
+        },5000)
+
+    </script>
+</body>
+</html>
