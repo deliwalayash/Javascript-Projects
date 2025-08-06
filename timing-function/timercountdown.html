@@ -9,9 +9,26 @@
 </head>
 <body>
     
-
+    <div class="d-flex">
+        <h1 id="hours">0</h1><span class="fs-4">:</span>
+    <h1 id="min">0</h1><span class="fs-4">:</span>
+    <h1 id="sec">0</h1>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script></script>
+    <script>
+
+        let hours=document.getElementById("hours")
+        let min=document.getElementById("min")
+        let sec=document.getElementById("sec")
+
+        
+        setInterval(() => {
+            let now= new Date()
+            hours.innerHTML=now.getHours()
+            min.innerHTML=now.getMinutes()
+            sec.innerHTML=now.getSeconds().toString().padStart(2,"0")
+        }, 1000);
+    </script>
 </body>
 </html>
