@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Student form</h1>
+        <form>
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" id="name" class="form-control">
+
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" id="email" class="form-control">
+
+            <label for="course">Course</label>
+            <select name="course" id="course">
+                <option value="">Please Select Course</option>
+                <option value="FSD">FSD</option>
+                <option value="UI/UX">UI / UX </option>
+                <option value="AI/ML">AI /ML</option>
+            </select>
+            <div>
+                 <button type="submit" class="btn btn-primary mt-3" id="sbt">Submit</button>
+            </div>
+        </form>
+    </div>
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){
+
+            let users=JSON.parse(localStorage.getItem("list")) || []
+
+            document.getElementById("sbt").addEventListener("click",function(e){
+                e.preventDefault()
+
+                let name=document.getElementById("name").value
+                let email=document.getElementById("email").value
+                let course=document.getElementById("course").value
+
+                let student={
+                    name,
+                    email,
+                    course,
+                }
+
+                users.push(student)
+
+                localStorage.setItem("list",JSON.stringify(users))
+
+                window.location.href = "users3.html"
+                console.log("fired")
+            })
+        })
+    </script>
+</body>
+</html>
