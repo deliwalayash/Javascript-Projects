@@ -40,6 +40,17 @@
         document.addEventListener("DOMContentLoaded",function(){
 
             let users = JSON.parse(localStorage.getItem("users")) || []
+
+            let updateid=localStorage.getItem("updateid") || null
+
+            if(updateid){
+                document.getElementById("name").value=users[updateid].name
+                document.getElementById("mail").value=users[updateid].email
+                document.getElementById("course").value=users[updateid].course
+            }
+
+            
+
             document.getElementById("submit").addEventListener("click",function(e){
             e.preventDefault()
 
@@ -55,7 +66,13 @@
                 course,
             }
 
-            users.push(user)
+            if(updateid){
+                users[updateid]=user
+            }
+            else{
+                users.push(user)
+            }
+
 
             localStorage.setItem("users",JSON.stringify(users))
             window.location="users4.html"

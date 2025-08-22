@@ -39,7 +39,9 @@
             }
 
             function updateuser(idx){
-                console.log(idx)
+
+                localStorage.setItem("updateid",JSON.stringify(idx))
+                window.location="./index4.html"
             }
             
             function displayuser(){
@@ -59,6 +61,7 @@
 
             document.addEventListener("DOMContentLoaded",function(){
                 displayuser()
+                localStorage.removeItem("updateid")
             })
 
         </script>
