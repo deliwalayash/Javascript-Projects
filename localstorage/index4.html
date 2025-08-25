@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
 
     <div class="container">
-        
+
         <form action="">
             <label for="name" class="form-label">Name:</label>
             <input type="text" id="name" class="form-control">
@@ -37,31 +39,49 @@
 
 
     <script>
-        document.addEventListener("DOMContentLoaded",function(){
+        document.addEventListener("DOMContentLoaded", function () {
 
-            let users = JSON.parse(localStorage.getItem("users")) || []
-            document.getElementById("submit").addEventListener("click",function(e){
-            e.preventDefault()
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            let editindex = localStorage.getItem("updateid")
 
 
-            let name=document.getElementById("name").value
-            let email=document.getElementById("mail").value
-            let course=document.getElementById("course").value
-    
+            if (editindex) {
 
-            let user={
-                name,
-                email,
-                course,
+                let updateuser = users[Number(editindex)]
+                document.getElementById("name").value = updateuser.name
+                document.getElementById("mail").value = updateuser.email
+                document.getElementById("course").value = updateuser.course
             }
 
-            users.push(user)
 
-            localStorage.setItem("users",JSON.stringify(users))
-            window.location="users4.html"
+            document.getElementById("submit").addEventListener("click", function (e) {
+                e.preventDefault()
+
+
+                let name = document.getElementById("name").value
+                let email = document.getElementById("mail").value
+                let course = document.getElementById("course").value
+
+                let user = {
+                    name,
+                    email,
+                    course,
+                }
+
+                if (editindex) {
+                    users[Number(editindex)] = user;
+                }
+                else {
+                    users.push(user)
+                }
+
+
+                localStorage.setItem("users", JSON.stringify(users))
+                window.location = "users4.html"
             })
         })
     </script>
-    
+
 </body>
+
 </html>

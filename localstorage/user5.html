@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="text-center">Student Details</h1>
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>No:</th>
+                    <th>Name:</th>
+                    <th>Email:</th>
+                    <th>Course:</th>
+                    <th>Action:</th>
+                </tr>
+            </thead>
+            <tbody id="result">
+
+            </tbody>
+        </table>
+        <a href="index5.html" class="btn btn-danger">Back</a>
+
+    </div>
+
+    <script>
+
+        let studentlist = JSON.parse(localStorage.getItem("student")) || []
+        let result = document.getElementById("result");
+
+        function deleteUser(idx) {
+            studentlist.splice(idx, 1);
+            localStorage.setItem("student", JSON.stringify(studentlist));
+            displayUsers();
+        }
+
+        function displayUsers() {
+            result.innerHTML = "";
+            studentlist.forEach((data, idx) => {
+                result.innerHTML += `
+                    <tr>
+                        <td>${idx + 1}</td>
+                        <td>${data.name}</td>
+                        <td>${data.email}</td>
+                        <td>${data.course}</td>
+                        <td>
+                            <button class="btn btn-danger" onclick="deleteUser(${idx})">Delete</button>
+                            <button class="btn btn-warning" onclick="editUser(${idx})">Edit</button>
+                        </td>
+                    </tr>
+                `
+            })
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            displayUsers();
+        })
+    </script>
+</body>
+
+</html>
