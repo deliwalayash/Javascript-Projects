@@ -1,0 +1,11 @@
+*{
+     font-family: 'Public Sans';
+}
+
+.topbar{
+     
+    background: rgb(15, 52, 96);
+    color: white;
+    font-size: 12px;
+    padding: 10px;
+}

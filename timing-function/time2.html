@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Interval Pause/Resume Demo</title>
+  <style>
+    body { font-family: system-ui, sans-serif; display:flex; flex-direction:column; gap:12px; align-items:center; margin-top:40px; }
+    .time { font-size:48px; letter-spacing:2px; }
+    .row { display:flex; gap:10px; }
+    button { padding:10px 16px; }
+  </style>
+</head>
+<body>
+  <h2>Countdown (console shows logs)</h2>
+
+  <div>
+    <label>Start from (seconds): <input id="startVal" type="number" min="0" value="10"></label>
+  </div>
+
+  <div class="time" id="display">00:00:10</div>
+
+  <div class="row">
+    <button id="startBtn">Start</button>
+    <button id="pauseBtn">Pause</button>
+    <button id="resetBtn">Reset</button>
+  </div>
+
+  <script>
+    // --- state
+    let total = 10;        // seconds remaining
+    let intervalId = null; // current setInterval id (null means not running)
+
+    const startInput  = document.getElementById('startVal');
+    const displayEl   = document.getElementById('display');
+    const startBtn    = document.getElementById('startBtn');
+    const pauseBtn    = document.getElementById('pauseBtn');
+    const resetBtn    = document.getElementById('resetBtn');
+
+    function fmt(s) {
+      const h = Math.floor(s / 3600);
+      s = s % 3600;
+      const m = Math.floor(s / 60);
+      const sec = s % 60;
+      return [h, m, sec].map(n => String(n).padStart(2, '0')).join(':');
+    }
+
+    function render() {
+      displayEl.textContent = fmt(total);
+    }
+
+    // Start = start fresh (if not running); if paused, it resumes from current "total"
+    function start() {
+      // if not running
+      if (intervalId === null) {
+        // if user changed input and timer is at 0, take new value
+        if (total === 0) {
+          total = parseInt(startInput.value, 10) || 0;
+          console.log('▶️ starting fresh at', total);
+        } else if (total > 0 && total === parseInt(startInput.value, 10)) {
+          console.log('▶️ resuming at', total);
+        } else if (total > 0 && total !== parseInt(startInput.value, 10)) {
+          console.log('▶️ resuming at', total, '(input ignored until Reset)');
+        }
+
+        intervalId = setInterval(() => {
+          console.log('tick', total);
+          if (total > 0) {
+            total--;
+            render();
+          } else {
+            clearInterval(intervalId);
+            intervalId = null;
+            console.log("⏰ Time's up!");
+          }
+        }, 1000);
+      }
+    }
+
+    function pause() {
+      if (intervalId !== null) {
+        clearInterval(intervalId);   // ⛔ stops the repeating loop
+        intervalId = null;           // mark as not running
+        console.log('⏸️ paused at', total);
+      }
+    }
+
+    function reset() {
+      clearInterval(intervalId);
+      intervalId = null;
+      total = parseInt(startInput.value, 10) || 0;
+      render();
+      console.log('🔄 reset to', total);
+    }
+
+    // wire up
+    startBtn.addEventListener('click', start);
+    pauseBtn.addEventListener('click', pause);
+    resetBtn.addEventListener('click', reset);
+
+    // initial draw
+    total = parseInt(startInput.value, 10) || 0;
+    render();
+  </script>
+</body>
+</html>
