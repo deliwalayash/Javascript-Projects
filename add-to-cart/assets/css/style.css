@@ -109,11 +109,3 @@
     font-weight: 600;
 }
 
-.add-to-cart-btn{
-    max-width: 32px;
-    max-height: 32px;
-    border-radius: 0px;
-    transition: 0.3s;
-    color: rgb(75, 180, 180);
-    border-color: rgb(0, 255, 255);
-}

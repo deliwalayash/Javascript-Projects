@@ -79,7 +79,7 @@
             </button>
             <button class="cart-btn position-relative">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-shopping-cart "><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path d="M17 17h-11v-14h-2"></path><path d="M6 5l14 1l-1 7h-13"></path></svg>
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success" id="counter">
                     0
                  <span class="visually-hidden">unread messages</span>
                 </span>
@@ -91,16 +91,37 @@
 </nav>
     </header>
 
-    <section class="sticky-menu d-none d-md-block">
+    <section class="sticky-menu d-none d-md-block mb-3">
 
         <div class="container">
             <div class="d-flex justify-content-between align-items-center ">
             <div>
-            <button class="category-btn d-flex justify-content-between">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#4BB4B4" stroke="none" class="tabler-icon tabler-icon-category-filled "><path d="M10 3h-6a1 1 0 0 0 -1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1 -1v-6a1 1 0 0 0 -1 -1z"></path><path d="M20 3h-6a1 1 0 0 0 -1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1 -1v-6a1 1 0 0 0 -1 -1z"></path><path d="M10 13h-6a1 1 0 0 0 -1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1 -1v-6a1 1 0 0 0 -1 -1z"></path><path d="M17 13a4 4 0 1 1 -3.995 4.2l-.005 -.2l.005 -.2a4 4 0 0 1 3.995 -3.8z"></path></svg>
-                <span class="ms-3 me-5">Categories</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-chevron-down dropdown-icon"><path d="M6 9l6 6l6 -6"></path></svg>
-            </button>
+         <div class="dropdown">
+    <button class="btn btn-light dropdown-toggle d-flex align-items-center" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#4BB4B4" class="me-2">
+            <path d="M10 3h-6a1 1 0 0 0 -1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1 -1v-6a1 1 0 0 0 -1 -1z"></path>
+            <path d="M20 3h-6a1 1 0 0 0 -1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1 -1v-6a1 1 0 0 0 -1 -1z"></path>
+            <path d="M10 13h-6a1 1 0 0 0 -1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1 -1v-6a1 1 0 0 0 -1 -1z"></path>
+            <path d="M17 13a4 4 0 1 1 -3.995 4.2l-.005 -.2l.005 -.2a4 4 0 0 1 3.995 -3.8z"></path>
+        </svg>
+        <span class="me-2">Categories</span>
+    </button>
+    
+    <ul class="dropdown-menu mt-2" aria-labelledby="categoryDropdown">
+        <li><a class="dropdown-item" href="#">Fashion</a></li>
+        <li><a class="dropdown-item" href="#">Electronics</a></li>
+        <li><a class="dropdown-item" href="#">Bikes</a></li>
+        <li><a class="dropdown-item" href="#">Home & Garden</a></li>
+        <li><a class="dropdown-item" href="#">Gifts</a></li>
+        <li><a class="dropdown-item" href="#">Music</a></li>
+        <li><a class="dropdown-item" href="#">Health & Beauty</a></li>
+        <li><a class="dropdown-item" href="#">Pets</a></li>
+        <li><a class="dropdown-item" href="#">Baby Toys</a></li>
+        <li><a class="dropdown-item" href="#">Groceries</a></li>
+        <li><a class="dropdown-item" href="#">Automotive</a></li>
+    </ul>
+</div>
+
         </div>
         <div>
             <ul class="list-unstyled d-flex gap-4 menus">
@@ -150,6 +171,8 @@
         </div>
     </section>
    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="./assets/js/index.js"></script>
 </body>
 </html>
