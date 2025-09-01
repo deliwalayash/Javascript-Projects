@@ -1,4 +1,4 @@
-    let procuctlist=[{
+let procuctlist=[{
             id:1,
             image:"https://bonik-react.vercel.app/_next/image?url=%2Fassets%2Fimages%2FFurniture%20Shop%2FFurniture%20(1).png&w=828&q=75",
             heading:"Grey Sofa",
@@ -6,6 +6,7 @@
             color:"Black Blue Grey",
             price:"138.70",
             delprice:"150"
+            
         },
         {
             id:2,
@@ -82,13 +83,44 @@
             cart[findProuctIdx].quantity++
         }
 
-        localStorage.setItem("cart",JSON.stringify(cart))
-
-        updatecounter()
+        displayCart()
     }
 
-    procuctlist.forEach((data,idx)=>{
+
+       function updateQuantity(productId, value){  
+           let idx = cart.findIndex(item => item.id == productId);
+           if (idx === -1 && value > 0) {
+            addToCart(productId);
+            displayCart()
+            return;
+    }
+          let currentQty = cart[idx].quantity || 0;
+        if (idx > -1) {
+        let newQuantity = currentQty + value;
+        if (newQuantity <= 0) {
+            cart.splice(idx, 1); // remove item if quantity goes 0
+        } else {
+            cart[idx].quantity = newQuantity;
+        }
+    }
+    displayCart()
+}
+
+function displayCart(){
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updatecounter();
+    renderProducts()
+    
+}
+    
+function renderProducts(){
+    card.innerHTML=""
+
+    procuctlist.forEach((data)=>{
         let deletedprice = data.delprice ? `<del>$${data.delprice}</del>` :""
+
+        let cartItem = cart.find(item => item.id === data.id);
+        let quantity = cartItem ? cartItem.quantity : 0;
         card.innerHTML += `<div class="col-lg-4 ">
             <img src="${data.image}" class="img-fluid">
             <h4>${data.heading}</h4>
@@ -102,16 +134,21 @@
             <del class="text-dark ms-4">${deletedprice}</del>
             </h3>
             <div>
-    
-
             
-            <button class="add-to-cart-btn bg-warning border-0" onclick="addToCart(${data.id})">
-            Shop Now
-            </button>
             </div>
+            
+            
+            
+            </div>
+            <div class="d-flex">
+            <button class="btn btn-warning" onclick="updateQuantity(${data.id},-1)">-</button>
+            <input class="form-control w-25 text-center" value=${quantity || 0} readonly>
+            <button class="btn btn-warning" onclick="updateQuantity(${data.id},1)">+</button>
             </div>
         </div>`
     })
+
+}
 
    const categoryToggle = document.getElementById("categoryToggle");
 const categoryMenu = document.getElementById("categoryMenu");
@@ -127,5 +164,6 @@ if (categoryToggle && categoryMenu) {
         }
     });
 }
+renderProducts()
 updatecounter()
 

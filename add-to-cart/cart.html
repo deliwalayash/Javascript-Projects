@@ -29,13 +29,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
                     </li>
 
                 </ul>
-                <form class="d-flex">
+        
 
-                    <button class="btn btn-primary position-relative" type="submit" >
+                    <button class="btn btn-primary position-relative" onclick="window.location='./index.html'" >
                         <span>
                             <i class="ri-shopping-cart-fill"></i>
                         </span>
@@ -45,14 +45,14 @@
                         </span>
 
                     </button>
-                </form>
+             
             </div>
         </div>
     </nav>
 
     <section class="py-5">
 
-        <div class="d-flex align-items-center justify-content-between container">
+        <div class="d-flex align-items-center justify-content-between container mb-5">
 
             <h1>Shopping Cart</h1>
             <button class="btn btn-danger d-none" id="clearBtn" onclick="clearCart(this)">
@@ -61,21 +61,23 @@
             </button>
         </div>
 
-        <div class="container text-center img-fluid">
+        <div class="container text-center img-fluid ">
 
-            <div class="d-flex align-items-center justify-content-center " id="empty">
+            <div class="d-flex align-items-center justify-content-center d-none flex-column" id="empty">
                 
                 <img src="https://static.vecteezy.com/system/resources/previews/016/462/240/non_2x/empty-shopping-cart-illustration-concept-on-white-background-vector.jpg" alt="empty image">
+
+
+                <button class="btn btn-success fs-4" onclick="window.location='./index.html'">
+                    Lets Shop Something
+                </button>
             </div>
 
-            <button class="btn btn-success fs-4" onclick="window.location='./index.html'">
-                Lets Shop Something
-            </button>
 
-            <div class="cartitems" id="cartItems">
+            <div class="cartitems " id="cartItems">
             </div>
 
-              <div class="card " id="checkout">
+              <div class="card " id="checkOut">
                 <h5 class="card-header">Grand Total</h5>
                 <div class="card-body">
                     <h5 class="card-title">Thanks For Purchasing Our Products</h5>
