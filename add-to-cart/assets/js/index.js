@@ -105,7 +105,7 @@
     
 
             
-            <button class="add-to-cart-btn" onclick="addToCart(${data.id})">
+            <button class="add-to-cart-btn bg-warning border-0" onclick="addToCart(${data.id})">
             Shop Now
             </button>
             </div>
