@@ -1,0 +1,116 @@
+*{
+     font-family: 'Public Sans';
+}
+ :root{
+    --primary-color:#4bb4b4;
+ }
+.topbar{
+     
+    background: rgb(15, 52, 96);
+    color: white;
+    font-size: 12px;
+    padding: 10px;
+}
+
+.language{
+    margin-right: 0.25rem;
+    margin-left: 0.5rem;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.user-btn{
+        border: none;
+    outline: none;
+    line-height: 1;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 600;
+    color: inherit;
+    transition: 150ms ease-in-out;
+    background-color: rgb(243, 245, 249);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.cart-btn{
+    border: none;
+    outline: none;
+    line-height: 1;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 600;
+    color: inherit;
+    transition: 150ms ease-in-out;
+    background-color: rgb(243, 245, 249);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.main-header{
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center;
+}
+
+.category-btn{
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    cursor: pointer;
+    padding: 11px 1.5rem;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    transition: 150ms ease-in-out;
+    line-height: 1;
+    border-radius: 0.5rem;
+    border: none;
+   color: rgb(125, 135, 156);
+    height: 40px;
+    background-color: rgb(248, 249, 250);
+}
+
+.menus{
+    font-size: 14px;
+    color: rgb(43, 52, 69);
+}
+
+.main-banner{
+    background-image: url(../images/Furniture\ Shop\ Header.jpg);
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: 0.3s;
+}
+
+.shop-now-btn{
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+    border-radius: 0px;
+    font-size: 16px;
+    padding: 8px 30px;
+    background-color: var(--primary-color);
+    border: none;
+}
+.product-card img{
+    height: 400px;
+    width: 400px;
+} 
+
+.price{
+    color:var(--primary-color);
+    font-size: 16px;
+    font-weight: 600;
+}
+.cartitems img {
+  width: 80px;
+  height: auto;
+  object-fit: contain; /* keeps aspect ratio clean */
+}
+
