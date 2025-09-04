@@ -63,14 +63,14 @@
             result.innerHTML= "00:00:00"
         }
         function resume(){
-    clearInterval(timeInterval)
-    timeInterval = setInterval(()=>{
-        if(totalsec <= 0){
+             clearInterval(timeInterval)
+            timeInterval = setInterval(()=>{
+             if(totalsec <= 0){
             clearInterval(timeInterval)
-        }
-        result.innerHTML = settimer(totalsec)
-        totalsec--
-    }, 1000)
+             }
+            result.innerHTML = settimer(totalsec)
+             totalsec--
+            }, 1000)
 }
         document.getElementById("reset").addEventListener("click",reset,{
         })
