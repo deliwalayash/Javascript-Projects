@@ -113,4 +113,25 @@
   height: auto;
   object-fit: contain; /* keeps aspect ratio clean */
 }
+#suggestions {
+  position: absolute;
+  top: 100%; /* show just below the search bar */
+  left: 0;
+  right: 0;
+  /* background: white;
+  border: 1px solid #ddd; */
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000; /* stays above navbar/logo */
+}
+
+#suggestions div {
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+#suggestions div:hover {
+  background: #f0f0f0;
+}
+
 

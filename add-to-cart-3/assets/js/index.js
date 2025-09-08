@@ -1,4 +1,4 @@
-let procuctlist=[{
+let productlist=[{
             id:1,
             image:"https://bonik-react.vercel.app/_next/image?url=%2Fassets%2Fimages%2FFurniture%20Shop%2FFurniture%20(1).png&w=828&q=75",
             heading:"Grey Sofa",
@@ -139,7 +139,7 @@ function addToCart(id){
     })
 
     if (cartIndex == -1){
-        let productToadd=procuctlist.find((product)=>{
+        let productToadd=productlist.find((product)=>{
             return product.id == id
         })
         cart.push(productToadd)
@@ -155,7 +155,7 @@ function addToCart(id){
 
 function displayProducts(){
 
-        procuctlist.forEach((product,idx)=>{
+        productlist.forEach((product,idx)=>{
             let deletedprice= product.delprice ? `<del>$${product.delprice} </del>` : ""
             card.innerHTML += `
             <div class="col-lg-4">
@@ -185,9 +185,17 @@ submitbtn.addEventListener("click",function(e){
      let search=document.getElementById("search").value.toLowerCase()
     mainsection.classList.add("d-none")
     findproducts.classList.remove("d-none")
-    let newproducts=procuctlist.filter((product)=>{
+
+    let newproducts=productlist.filter((product)=>{
         return product.heading.toLowerCase().includes(search)
     })
+
+    if(newproducts.length ==0){
+        searchproducts.innerHTML ="<h3 class='text-danger text-center'>No Products Found</h3>"
+         mainsection.classList.remove("d-none")
+        return
+    }
+
     searchproducts.innerHTML=""
     newproducts.forEach((product)=>{
             let deletedprice= product.delprice ? `<del>$${product.delprice} </del>` : ""
@@ -205,3 +213,9 @@ submitbtn.addEventListener("click",function(e){
                        </div> `
     })
 })
+
+
+
+
+
+
