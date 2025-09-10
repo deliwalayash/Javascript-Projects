@@ -29,7 +29,7 @@ let productlist=[{
         },
         {
             id:4,
-            image:"https://thetimberguy.com/cdn/shop/products/Mid-Century-designer-wooden-rattan-cane-sofa-with-cushion-Make-your-combination_1200x.jpg?v=1680545367",
+            image:"https://t3.ftcdn.net/jpg/07/87/91/12/360_F_787911262_MYp3F5AWAM1WsT21ZA4CfWOjuphNmmt0.jpg",
             heading:"Study Sofa",
             rating:"4.3",
             color:"Black Blue Grey",
@@ -38,7 +38,7 @@ let productlist=[{
         },
         {
             id:5,
-            image:"https://bonik-react.vercel.app/_next/image?url=%2Fassets%2Fimages%2FFurniture%20Shop%2FFurniture%20(4).png&w=640&q=75",
+            image:"https://preview.redd.it/sharing-my-workflow-for-how-to-remove-background-in-a1111-v0-ik008g1kyyua1.png?width=800&format=png&auto=webp&s=e3cd20bdcbdfd1967808b5d6f4be34db029aaead",
             heading:"Study Chair",
             rating:"4.3",
             color:"Black Blue Grey",
@@ -47,7 +47,7 @@ let productlist=[{
         },
         {
             id:6,
-            image:"https://craftsmill.in/cdn/shop/files/sofas-accent-chairs-cider-orange-soft-velvet-touch-fabric-emily-flared-arm-2-seater-sofa-60-46567514931491.jpg?v=1725047510",
+            image:"https://img.freepik.com/free-vector/modern-beige-sofa-realistic-icon-white-background-vector-illustration_1284-67384.jpg",
             heading:"Sofa",
             rating:"4.3",
             color:"Black Blue Grey",
@@ -56,7 +56,7 @@ let productlist=[{
         },
         {
             id:7,
-            image:"https://img.freepik.com/premium-psd/kitchen-table-isolated-transparent-background_191095-13975.jpg?semt=ais_incoming&w=740&q=80",
+            image:"https://www.ulcdn.net/images/products/921639/original/Werner_Study_Chair_Nylon_Base_LP.jpg?1722319626",
             heading:"Dining Table",
             rating:"4.3",
             color:"Black Blue Grey",
@@ -65,7 +65,7 @@ let productlist=[{
         },
         {
             id:8,
-            image:"https://png.pngtree.com/png-clipart/20231129/original/pngtree-dining-table-and-chairs-isolated-dining-table-photo-png-image_13735733.png",
+            image:"https://i.pinimg.com/736x/91/a2/b8/91a2b8d0d2cf734b86240d10f58a9c41.jpg",
             heading:"Dining Table",
             rating:"4.3",
             color:"Black Blue Grey",
@@ -74,7 +74,7 @@ let productlist=[{
         },
         {
             id:9,
-            image:"https://png.pngtree.com/png-vector/20240914/ourlarge/pngtree-creative-office-chair-icon-furniture-clipart-with-transparent-background-png-image_13833205.png",
+            image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMpM81K9-ZUQGlYvg7_elqdRMQtddp-FhbNg&s",
             heading:"Office Chair",
             rating:"4.3",
             color:"Black Blue Grey",
@@ -83,7 +83,7 @@ let productlist=[{
         },
         {
             id:10,
-            image:"https://static.vecteezy.com/system/resources/previews/053/814/942/non_2x/office-chairs-side-view-full-body-isolate-on-transparent-background-png.png",
+            image:"https://www.wfhtable.com/cdn/shop/files/2K2A6407-removebg-PhotoRoom.png?v=1691414530&width=1946",
              heading:"Office Chair",
             rating:"4.3",
             color:"Black Blue Grey",
@@ -92,7 +92,7 @@ let productlist=[{
         },
         {
             id:11,
-            image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5EEAX1tKhFzFwXUv7MRTWtcvSaiRxhz1cYw&s",
+            image:"https://decorativefair.com/wp-content/uploads/2024/06/Z50_1413_Mirror_Fronted_cabinet-removebg.png",
              heading:"Cup Board",
             rating:"4.3",
             color:"Black Blue Grey",
@@ -103,6 +103,15 @@ let productlist=[{
             id:12,
             image:"https://thumbs.dreamstime.com/b/wooden-wardrobe-isolated-white-transparent-background-closed-brown-close-up-front-view-graphic-design-element-theme-312240807.jpg",
              heading:"Cup Board",
+            rating:"4.3",
+            color:"Black Blue Grey",
+            price:"250",
+
+        },
+        {
+            id:13,
+            image:"https://img.freepik.com/premium-photo/table-computer_692498-1924.jpg?semt=ais_hybrid&w=740&q=80",
+             heading:"Computer Table",
             rating:"4.3",
             color:"Black Blue Grey",
             price:"250",
