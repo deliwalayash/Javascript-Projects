@@ -111,20 +111,21 @@ let productlist=[{
         {
             id:13,
             image:"https://img.freepik.com/premium-photo/table-computer_692498-1924.jpg?semt=ais_hybrid&w=740&q=80",
-             heading:"Computer Table",
+            heading:"Computer Table",
             rating:"4.3",
             color:"Black Blue Grey",
             price:"250",
-
+            
         },
     ]
-
+    
     let cart=JSON.parse(localStorage.getItem("cart")) || []
     let counter=document.getElementById("counter")
     let card=document.getElementById("card")
     let submitbtn=document.getElementById("sbt")
     let mainsection=document.getElementById("main")
     let searchproducts=document.getElementById("searchproducts")
+    let totalitems =0
    
 
  function getStars(rating){
@@ -162,6 +163,13 @@ function addToCart(id){
     updateCounter()
 }
 
+function updateCount(){
+    totalitems++
+    displayProducts()
+    localStorage.setItem("totalitems",JSON.stringify(totalitems))
+
+}
+
 function displayProducts(){
 
         productlist.forEach((product,idx)=>{
@@ -176,18 +184,19 @@ function displayProducts(){
                         <h4 class="text-warning">${getStars(product.rating)}
                         <span class="text-primary">${product.rating}</span>
                         </h4>
-                        <button class="btn btn-warning" onclick="addToCart(${product.id})">Shop Now</button>
+                        <button class="btn btn-warning" onclick="addToCart(${product.id});updateCount()">Shop Now</button>
             </div>
                         `
         })
+        updateCounter()
 }
 
 function updateCounter(){
-    counter.innerHTML = cart.length
+    counter.innerHTML = totalitems
 }
 
 displayProducts()
-updateCounter()
+
 
 submitbtn.addEventListener("click",function(e){
     e.preventDefault()

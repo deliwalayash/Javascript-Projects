@@ -4,6 +4,7 @@ let empty=document.getElementById("empty")
 let cartTable=document.getElementById("cartTable")
 let cartItem=document.getElementById("cartItem")
 let total=document.getElementById("mainTotal")
+let totalitems=JSON.parse(localStorage.getItem("totalitems"))
 
 let cart=JSON.parse(localStorage.getItem("cart")) || []
 
@@ -32,6 +33,11 @@ function updateQuantity(idx,value){
     updateCart()
 }
 
+function updateTotalitems(value){
+    totalitems+=value
+    counter.innerHTML=totalitems
+}
+
 function displayCart(){
 
     let mainTotal=0
@@ -56,18 +62,25 @@ function displayCart(){
         <td><h4>${product.heading}</h4></td>
         <td><h4>$${product.price}</h4></td>
         <td><h4>${product.quantity}</h4></td>
-        <td><h4>$${subTotal}</h4></td>
+        <td><h4>$${subTotal.toFixed(2)}</h4></td>
         <td>
-        <button class="btn btn-warning" onclick="updateQuantity(${idx},-1)">-</button>
+        <button class="btn btn-warning" onclick="updateQuantity(${idx},-1);updateTotalitems(-1)">-</button>
         <button class="btn btn-danger" onclick="deleteitem(${idx})">🗑</button>
-        <button class="btn btn-warning" onclick="updateQuantity(${idx},1)">+</button>
+        <button class="btn btn-warning" onclick="updateQuantity(${idx},1);updateTotalitems(1)">+</button>
         </td>
 
         </tr>
       `
     })
-    total.innerHTML=mainTotal
+    total.innerHTML=`$ ${mainTotal.toFixed(2)}`
+    counter.innerHTML=cart.length    
 
 }
+
+clearBtn.addEventListener("click",function(){
+    cart = []
+    updateCart()
+
+})
 
 displayCart()
