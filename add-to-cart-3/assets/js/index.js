@@ -125,7 +125,7 @@ let productlist=[{
     let submitbtn=document.getElementById("sbt")
     let mainsection=document.getElementById("main")
     let searchproducts=document.getElementById("searchproducts")
-    let totalitems =0
+    let totalitems = JSON.parse(localStorage.getItem("totalitems")) || 0
    
 
  function getStars(rating){
@@ -160,14 +160,13 @@ function addToCart(id){
     }
 
     localStorage.setItem("cart",JSON.stringify(cart))
+    updateCount()
     updateCounter()
 }
 
 function updateCount(){
     totalitems++
-    displayProducts()
     localStorage.setItem("totalitems",JSON.stringify(totalitems))
-
 }
 
 function displayProducts(){
@@ -184,7 +183,7 @@ function displayProducts(){
                         <h4 class="text-warning">${getStars(product.rating)}
                         <span class="text-primary">${product.rating}</span>
                         </h4>
-                        <button class="btn btn-warning" onclick="addToCart(${product.id});updateCount()">Shop Now</button>
+                        <button class="btn btn-warning" onclick="addToCart(${product.id})">Shop Now</button>
             </div>
                         `
         })

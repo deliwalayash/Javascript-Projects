@@ -1,61 +1,65 @@
-let counter=document.getElementById("counter")
-let clearBtn=document.getElementById("clearBtn")
-let empty=document.getElementById("empty")
-let cartTable=document.getElementById("cartTable")
-let cartItem=document.getElementById("cartItem")
-let total=document.getElementById("mainTotal")
-let totalitems=JSON.parse(localStorage.getItem("totalitems"))
+let counter = document.getElementById("counter")
+let clearBtn = document.getElementById("clearBtn")
+let empty = document.getElementById("empty")
+let cartTable = document.getElementById("cartTable")
+let cartItem = document.getElementById("cartItem")
+let total = document.getElementById("mainTotal")
+let totalitems = JSON.parse(localStorage.getItem("totalitems")) || 0
+let totalitemcount = document.getElementById("totalitemcount")
 
-let cart=JSON.parse(localStorage.getItem("cart")) || []
+let cart = JSON.parse(localStorage.getItem("cart")) || []
 
-function deleteitem(idx){
-    cart.splice(idx,1)
+totalitemcount.innerHTML = totalitems;
+
+function deleteitem(idx) {
+    cart.splice(idx, 1)
     updateCart()
 
 }
 
-function updateCart(){
-    localStorage.setItem("cart",JSON.stringify(cart))
+function updateCart() {
+    localStorage.setItem("cart", JSON.stringify(cart))
     displayCart()
 }
 
-function updateQuantity(idx,value){
+function updateQuantity(idx, value) {
 
-    let updatedQuantity=cart[idx].quantity + value
+    let updatedQuantity = cart[idx].quantity + value
 
-    if(updatedQuantity <=0){
+    if (updatedQuantity <= 0) {
         deleteitem(idx)
     }
-    else{
+    else {
         cart[idx].quantity = updatedQuantity
     }
 
     updateCart()
 }
 
-function updateTotalitems(value){
-    totalitems+=value
-    counter.innerHTML=totalitems
+function updateTotalitems(value) {
+    totalitems += value
+    totalitemcount.innerHTML = totalitems
+    localStorage.setItem("totalitems", JSON.stringify(totalitems))
 }
 
-function displayCart(){
+function displayCart() {
 
-    let mainTotal=0
-    if(cart.length <=0){
-    empty.classList.remove("d-none")
-    mainTotal=0
-    counter.innerHTML=0
-    total.innerHTML=mainTotal
-     cartTable.classList.add("d-none")
-    return
+    let mainTotal = 0
+    if (cart.length <= 0) {
+        empty.classList.remove("d-none")
+        mainTotal = 0
+        counter.innerHTML = 0
+        total.innerHTML = mainTotal
+        cartTable.classList.add("d-none")
+        return
     }
 
     cartTable.classList.remove("d-none")
-    cartItem.innerHTML=""
-    
-    cart.forEach((product,idx)=>{
-        let subTotal=product.price * product.quantity
-        mainTotal +=subTotal
+    cartItem.innerHTML = ""
+
+    cart.forEach((product, idx) => {
+        let subTotal = product.price * product.quantity
+        mainTotal += subTotal
         cartItem.innerHTML += `
         <tr>
         <td><img class="img fluid" src="${product.image}"<td>
@@ -72,14 +76,19 @@ function displayCart(){
         </tr>
       `
     })
-    total.innerHTML=`$ ${mainTotal.toFixed(2)}`
-    counter.innerHTML=cart.length    
+    total.innerHTML = `$ ${mainTotal.toFixed(2)}`
+    counter.innerHTML = cart.length
+
 
 }
 
-clearBtn.addEventListener("click",function(){
+clearBtn.addEventListener("click", function () {
     cart = []
     updateCart()
+    totalitems = 0
+    localStorage.setItem("totalitems", JSON.stringify(totalitems))
+        totalitemcount.innerHTML = totalitems
+
 
 })
 
