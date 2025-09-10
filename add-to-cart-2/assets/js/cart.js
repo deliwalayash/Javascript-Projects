@@ -8,6 +8,8 @@ let clearBtn=document.getElementById("clearBtn")
 let emptyCartImg=document.getElementById("empty")
 let total=document.getElementById("mainTotal")
 let cartTable =document.getElementById("cartTable")
+let totalquantity=JSON.parse(localStorage.getItem("totalquantity")) || 0
+let totalitemsnumber=document.getElementById("totalitemsnumber")
 
 if (cart.length <=0){
     emptyCartImg.classList.remove("d-none")
@@ -24,14 +26,23 @@ function updateQuantity(idx,value){
     }
     else{
         cart[idx].quantity=updatedQuantity
+        totalquantity= totalquantity + value
+        totalitemsnumber.innerHTML=totalquantity
+        localStorage.setItem("totalquantity",JSON.stringify(totalquantity))
     }
     updateCart()
+    
 
 }
 
 function deleteItem(id){
+    totalquantity =totalquantity - cart[id].quantity
+    totalitemsnumber.innerHTML=totalquantity
+    localStorage.setItem("totalquantity",JSON.stringify(totalquantity))
+
     cart.splice(id,1)
     updateCart()
+    counter.innerHTML =cart.length
 
 }
 
@@ -69,6 +80,7 @@ function displayCart(){
     })
     console.log(mainTotal)
     total.innerHTML=mainTotal.toFixed(2)
+    counter.innerHTML = cart.length
 }
 function updateCart(){
 
@@ -76,4 +88,14 @@ function updateCart(){
     displayCart()
 }
 
+clearBtn.addEventListener("click",function(){
+
+    cart = []
+    counter.innerHTML=cart.length
+    updateCart()
+})
+
 displayCart()
+addEventListener("DOMContentLoaded",function(){
+    totalitemsnumber.innerHTML=totalquantity
+})

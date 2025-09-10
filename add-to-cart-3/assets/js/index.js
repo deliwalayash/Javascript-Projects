@@ -154,9 +154,23 @@ function addToCart(id){
         })
         cart.push(productToadd)
         productToadd.quantity=1
+        Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Item Added to Cart",
+        showConfirmButton: false,
+        timer: 1500
+});
     }
     else{
         cart[cartIndex].quantity++
+         Swal.fire({
+        position: "top-end",
+        icon: "warning",
+        title: "Item Already in the Cart.",
+        showConfirmButton: false,
+        timer: 1500
+});
     }
 
     localStorage.setItem("cart",JSON.stringify(cart))
@@ -174,7 +188,7 @@ function displayProducts(){
         productlist.forEach((product,idx)=>{
             let deletedprice= product.delprice ? `<del>$${product.delprice} </del>` : ""
             card.innerHTML += `
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-6">
                         <img class="img-fluid" src="${product.image}">
                         <h3>${product.heading}</h3>
                         <h4 class="text-primary">$${product.price}
@@ -228,8 +242,8 @@ submitbtn.addEventListener("click",function(e){
                         </h4>
                         <button class="btn btn-warning" onclick="addToCart(${product.id})">Shop Now</button>
                        </div> `
-    })
-})
+         })
+        })
 
 
 

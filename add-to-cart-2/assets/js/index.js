@@ -41,6 +41,8 @@ let procuctlist=[{
 let cart=JSON.parse(localStorage.getItem("cart")) || []
 let card=document.getElementById("card")
 let counter=document.getElementById("counter")
+let totalquantity = JSON.parse(localStorage.getItem("totalquantity")) || 0
+let totalitemsnumber=document.getElementById("totalitemsnumber")
 
 function getStars(rating){
 
@@ -55,65 +57,13 @@ function getStars(rating){
     }
     return star
 }
-// function addToCart(idx){
 
-//     let cartIndex=cart.findIndex((product) =>{
-//             return product.id == idx
-//     })
-//     console.log(cartIndex)
+function gettotalitems(){
 
-//     let procutToAdd=[]
-//     if(cartIndex == -1){
-//         procutToAdd = procuctlist.find((product)=>{
-//             return product.id == idx
-//         })
-//         cart.push(procutToAdd)
-//         procutToAdd.quantity=1
-//     }
-//     else{
-//         cart[cartIndex].quantity++
-//     }
-
-//     localStorage.setItem("cart",JSON.stringify(cart))
-//     updateCounter()
-//     displayCart();
-
-
-//   // Manually show the offcanvas using Bootstrap's JS API
-//   let offcanvasEl = document.getElementById('cartOffcanvas');
-//   let bsOffcanvas = new bootstrap.Offcanvas(offcanvasEl);
-//   bsOffcanvas.show();
-
-
-// }
-
-// function addToCart(idx) {
-//     let cartIndex = cart.findIndex((product) => product.id == idx);
-
-//     if (cartIndex == -1) {
-//         let productToAdd = procuctlist.find((product) => product.id == idx);
-//         if (productToAdd) { // Check if the product was found
-//             productToAdd.quantity = 1;
-//             cart.push(productToAdd);
-//         }
-//     } else {
-//         cart[cartIndex].quantity++;
-//     }
-
-//     localStorage.setItem("cart", JSON.stringify(cart));
-//     updateCounter();
-
-//     // Ensure displayCart is called and offcanvas is shown only if the function exists
-//     if (typeof displayCart === 'function') {
-//         displayCart();
-
-//         // Manually show the offcanvas using Bootstrap's JS API
-//         let offcanvasEl = document.getElementById('cartOffcanvas');
-//         let bsOffcanvas = new bootstrap.Offcanvas(offcanvasEl);
-//         bsOffcanvas.show();
-//     }
-// }
-
+    totalquantity++
+    localStorage.setItem("totalquantity",JSON.stringify(totalquantity))
+    totalitemsnumber.innerHTML=totalquantity
+}
 function addToCart(idx) {
     let cartIndex = cart.findIndex((product) => product.id == idx);
 
@@ -128,24 +78,25 @@ function addToCart(idx) {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
+    gettotalitems();
     updateCounter();
 
     // Call displayCart if the function exists
-    if (typeof displayCart === 'function') {
-        displayCart();
-    }
+    // if (typeof displayCart === 'function') {
+    //     displayCart();
+    // }
     
     // Manually show the offcanvas using Bootstrap's JS API
-    let offcanvasEl = document.getElementById('cartOffcanvas');
-    let bsOffcanvas = new bootstrap.Offcanvas(offcanvasEl);
-    bsOffcanvas.show();
+    // let offcanvasEl = document.getElementById('cartOffcanvas');
+    // let bsOffcanvas = new bootstrap.Offcanvas(offcanvasEl);
+    // bsOffcanvas.show();
 }
 function displayProducts(){
     card.innerHTML=""
     procuctlist.forEach((product)=>{
         let deletedprice= product.delprice ? `<del>$${product.delprice}<del>` : ""
         card.innerHTML +=`
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-6">
                  <img class="img-fluid" src="${product.image}">
                 <div class="d-flex align-items-center justify-content-between">
                 <div>
@@ -170,5 +121,9 @@ function updateCounter(){
 
 displayProducts()
 updateCounter()
+addEventListener("DOMContentLoaded",function(){
+    totalitemsnumber.innerHTML=totalquantity
+})
+
 
 

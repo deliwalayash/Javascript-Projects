@@ -12,8 +12,13 @@ let cart = JSON.parse(localStorage.getItem("cart")) || []
 totalitemcount.innerHTML = totalitems;
 
 function deleteitem(idx) {
+    totalitems =totalitems - cart[idx].quantity  
+    totalitemcount.innerHTML = totalitems
+    localStorage.setItem("totalitems", JSON.stringify(totalitems))
+
     cart.splice(idx, 1)
     updateCart()
+   
 
 }
 
@@ -25,14 +30,15 @@ function updateCart() {
 function updateQuantity(idx, value) {
 
     let updatedQuantity = cart[idx].quantity + value
+    
 
     if (updatedQuantity <= 0) {
         deleteitem(idx)
     }
     else {
         cart[idx].quantity = updatedQuantity
+        updateTotalitems(value)
     }
-
     updateCart()
 }
 
@@ -68,9 +74,9 @@ function displayCart() {
         <td><h4>${product.quantity}</h4></td>
         <td><h4>$${subTotal.toFixed(2)}</h4></td>
         <td>
-        <button class="btn btn-warning" onclick="updateQuantity(${idx},-1);updateTotalitems(-1)">-</button>
+        <button class="btn btn-warning" onclick="updateQuantity(${idx},-1)">-</button>
         <button class="btn btn-danger" onclick="deleteitem(${idx})">🗑</button>
-        <button class="btn btn-warning" onclick="updateQuantity(${idx},1);updateTotalitems(1)">+</button>
+        <button class="btn btn-warning" onclick="updateQuantity(${idx},1)">+</button>
         </td>
 
         </tr>
@@ -87,7 +93,7 @@ clearBtn.addEventListener("click", function () {
     updateCart()
     totalitems = 0
     localStorage.setItem("totalitems", JSON.stringify(totalitems))
-        totalitemcount.innerHTML = totalitems
+     totalitemcount.innerHTML = totalitems
 
 
 })
