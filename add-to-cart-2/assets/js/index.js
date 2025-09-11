@@ -43,6 +43,10 @@ let card=document.getElementById("card")
 let counter=document.getElementById("counter")
 let totalquantity = JSON.parse(localStorage.getItem("totalquantity")) || 0
 let totalitemsnumber=document.getElementById("totalitemsnumber")
+let submit=document.getElementById("sbt")
+let mainbanner=document.getElementById("mainbanner")
+let searchproducts=document.getElementById("searchproducts")
+let searchcart=document.getElementById("searchcart")
 
 function getStars(rating){
 
@@ -123,6 +127,43 @@ displayProducts()
 updateCounter()
 addEventListener("DOMContentLoaded",function(){
     totalitemsnumber.innerHTML=totalquantity
+})
+
+submit.addEventListener("click",function(e){
+
+    e.preventDefault()
+
+    let search=document.getElementById("search").value
+    mainbanner.classList.add("d-none")
+
+    let foundproducts=procuctlist.filter((product)=>{
+        return product.heading.toLowerCase().includes(search)
+    })
+    console.log(foundproducts)
+    searchcart.innerHTML=""
+    foundproducts.forEach((product)=>{
+        let deletedprice= product.delprice ? `<del>$${product.delprice}<del>` : ""
+        searchcart.innerHTML += `
+        
+        <div class="col-lg-4 col-md-6">
+                 <img class="img-fluid" src="${product.image}">
+                <div class="d-flex align-items-center justify-content-between">
+                <div>
+                    <h3>${product.heading}</h3>
+                    <h4 class="text-primary">$${product.price} <span class="text-danger ms-2">${deletedprice}</span></h4>
+                    <h5 class="text-warning">${getStars(product.rating)}
+                    <span class="text-success ms-2">${product.rating}</span>
+                    </h5>
+                </div>
+                <div>
+                    <button class="btn btn-warning me-4" onclick="addToCart(${product.id})">ShopNow</button>  
+                </div>
+                </div>   
+        </div>                
+        `
+    })
+
+    
 })
 
 
