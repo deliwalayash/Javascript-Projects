@@ -92,6 +92,9 @@ clearBtn.addEventListener("click",function(){
 
     cart = []
     counter.innerHTML=cart.length
+    totalquantity=0
+    totalitemsnumber.innerHTML=totalquantity
+    localStorage.setItem("totalquantity",JSON.stringify(totalquantity))
     updateCart()
 })
 

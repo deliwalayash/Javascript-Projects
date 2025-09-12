@@ -135,11 +135,16 @@ submit.addEventListener("click",function(e){
 
     let search=document.getElementById("search").value
     mainbanner.classList.add("d-none")
+    searchproducts.classList.remove("d-none")
 
     let foundproducts=procuctlist.filter((product)=>{
         return product.heading.toLowerCase().includes(search)
     })
-    console.log(foundproducts)
+    if(foundproducts.length == 0){
+         searchcart.innerHTML=`<h1 class="text-center text-danger">No Products Found</h1>`
+          mainbanner.classList.remove("d-none")
+         return
+    }
     searchcart.innerHTML=""
     foundproducts.forEach((product)=>{
         let deletedprice= product.delprice ? `<del>$${product.delprice}<del>` : ""

@@ -13,7 +13,7 @@
 
      <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
-<body>
+<body >
     
     <div class="topbar">
          <div class="container">
@@ -59,28 +59,28 @@
           </a>
              </div>
 
-             <div class="w-75 ">
+             <div class="w-50 ">
                     <form class="d-flex w-100 my-lg-0 mx-auto border  py-1 px-2">
                         <input class="form-control bg-transparent border-0 shadow-none" type="search"
                             placeholder="Search" aria-label="Search" id="search">
-                            <button class="btn btn-warning" id="sbt">Submit</button>
-                        <select
+                            <button class="btn btn-warning" id="sbt">Search</button>
+                        <!-- <select
                             class="form-select bg-transparent w-50 border-0 shadow-none rounded-0 border-start d-md-block d-none">
                             <option selected>Categories</option>
                             <option value="1">Sofa</option>
                             <option value="2">Chair</option>
                             <option value="3">Table</option>
-                        </select>
+                        </select> -->
                        
                     </form>
                 </div>
 
             <div class="header-right  d-none d-md-block ">
-            <button class="user-btn">
+            <button class="user-btn me-2">
                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-user "><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path></svg>
 
             </button>
-            <button class="cart-btn position-relative" onclick="window.location='./cart.html'">
+            <button class="cart-btn position-relative me-2" onclick="window.location='./cart.html'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-shopping-cart "><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path d="M17 17h-11v-14h-2"></path><path d="M6 5l14 1l-1 7h-13"></path></svg>
                   <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success" id="counter">
                     0
@@ -144,7 +144,7 @@
         </div>
     </section>
 
-    <section id="searchproducts">
+    <section id="searchproducts" class="d-none">
         <div class="container">
 
             <h1 class="text-center">Search Products</h1>

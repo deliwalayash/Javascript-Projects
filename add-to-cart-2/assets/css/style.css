@@ -12,6 +12,39 @@
     padding: 10px;
 }
 
+/* Make topbar fixed */
+.topbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1030; /* High z-index to stay on top */
+}
+
+/* Make header fixed below the topbar */
+header {
+  position: sticky;
+  top: 38px; /* adjust to match .topbar height */
+  left: 0;
+  width: 100%;
+  z-index: 1030;
+  background: white; /* to avoid transparency */
+}
+
+/* Make sticky-menu fixed below header */
+.sticky-menu {
+  position: sticky;
+  top: 118px; /* adjust based on total height of .topbar + header */
+  left: 0;
+  width: 100%;
+  z-index: 1030;
+  background: white;
+}
+
+
+
+
+
 .language{
     margin-right: 0.25rem;
     margin-left: 0.5rem;
