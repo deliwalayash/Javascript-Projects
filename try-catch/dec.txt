@@ -1,0 +1,7 @@
+| Feature             | `return`                           | `throw`                                  |
+| ------------------- | ---------------------------------- | ---------------------------------------- |
+| **Purpose**         | Sends a value back from a function | Signals an **error** or exceptional case |
+| **Exits function?** | ✅ Yes                              | ✅ Yes                                    |
+| **Can be caught?**  | ❌ No                               | ✅ Yes — with `try...catch`               |
+| **Error state?**    | 🚫 No error — normal behavior      | ⚠️ Yes — an error is triggered           |
+| **Flow continues?** | ✅ Yes, unless explicitly returned  | ⚠️ Jumps to `catch`, or crashes app      |
