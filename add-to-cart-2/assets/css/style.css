@@ -270,5 +270,13 @@ header {
   object-fit: contain; /* keeps aspect ratio clean */
 }
 
+.fixed-cart-btn {
+    position: fixed;
+    bottom: 0px;
+  
+    z-index: 1050; /* Ensure it's above other content */
+}
+
+
 
 
