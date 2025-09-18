@@ -67,19 +67,20 @@ function displayCart(){
         <tr>
         <td><img class="img-fluid" style="width:80px; height:auto;"src="${product.image}"></td>
         <td>${product.heading}</td>
-        <td>${product.price}</td>
+        <td>$${product.price}</td>
         <td>
-        <button class="btn btn-warning" onclick="updateQuantity(${idx},-1)">-</button>
+        <div class="d-flex">  <button class="btn btn-warning" onclick="updateQuantity(${idx},-1)">-</button>
         <span class="px-3">${product.quantity}</span>
          <button class="btn btn-warning" onclick="updateQuantity(${idx},1)">+</button>
         </td>
-        <td>${subTotal.toFixed(2)}</td>
-        <td><button class="btn btn-danger" onclick="deleteItem(${idx})">🗑</button></td>
+        <td>$${subTotal.toFixed(2)}</td>
+        <td><button class="btn btn-danger" onclick="deleteItem(${idx})">🗑</button></td></div>
+      
         </tr>
         `
     })
     console.log(mainTotal)
-    total.innerHTML=mainTotal.toFixed(2)
+    total.innerHTML=`$${mainTotal.toFixed(2)}`
     counter.innerHTML = cart.length
 }
 function updateCart(){

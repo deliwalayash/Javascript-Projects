@@ -4,27 +4,24 @@
  :root{
     --primary-color:#4bb4b4;
  }
-.topbar{
-     
-    background: rgb(15, 52, 96);
-    color: white;
-    font-size: 12px;
-    padding: 10px;
-}
 
 /* Make topbar fixed */
 .topbar {
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1030; /* High z-index to stay on top */
+     background: rgb(15, 52, 96);
+    color: white;
+    font-size: 12px;
+    padding: 15px;
+     position: sticky;
+     top: 0;
+     left: 0;
+     width: 100%;
+     z-index: 1030; /* High z-index to stay on top */
 }
 
 /* Make header fixed below the topbar */
 header {
   position: sticky;
-  top: 38px; /* adjust to match .topbar height */
+  top: 48px; /* adjust to match .topbar height */
   left: 0;
   width: 100%;
   z-index: 1030;
@@ -34,12 +31,138 @@ header {
 /* Make sticky-menu fixed below header */
 .sticky-menu {
   position: sticky;
-  top: 118px; /* adjust based on total height of .topbar + header */
+  top: 128px; /* adjust based on total height of .topbar + header */
   left: 0;
   width: 100%;
   z-index: 1030;
   background: white;
 }
+ .footer-section {
+            background-color: #1a365d;
+            color: #ffffff;
+            padding: 60px 0 20px 0;
+        }
+        
+        .footer-brand {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ef4444;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .footer-description {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .footer-heading {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+        
+        .app-download {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .app-download img {
+            height: 40px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .app-download img:hover {
+            transform: translateY(-2px);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: #ffffff;
+        }
+        
+        .footer-bottom {
+            background-color: #0f172a;
+            padding: 15px 0;
+            text-align: right;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 8px;
+            color: #94a3b8;
+        }
+        
+        .contact-info strong {
+            color: #ffffff;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-section {
+                padding: 40px 0 20px 0;
+            }
+            
+            .footer-brand {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+            
+            .footer-description {
+                text-align: center;
+            }
+            
+            .footer-heading {
+                margin-top: 30px;
+            }
+            
+            .app-download {
+                justify-content: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .footer-bottom {
+                text-align: center;
+            }
+        }
 
 
 
@@ -146,4 +269,6 @@ header {
   height: auto;
   object-fit: contain; /* keeps aspect ratio clean */
 }
+
+
 

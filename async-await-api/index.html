@@ -37,8 +37,11 @@
 
                 let input = document.getElementById("ip").value
                 let user = await fetch(`https://api.github.com/users/${input}`)
+                if(!user.ok){
+                    throw new Error()
+                }
+
                 let data = await user.json()
-                console.log(data)
                 usercard.innerHTML = `
                     <div class="card" style="width: 18rem;">
                     <img src="${data.avatar_url}" class="card-img-top" alt="...">
@@ -51,7 +54,7 @@
                     </div>
                     </div>
                     `
-            }
+                }
             catch (err) {
                 usercard.classList.add("d-none")
                 let nouser=document.getElementById("nouser")

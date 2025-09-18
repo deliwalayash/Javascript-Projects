@@ -36,6 +36,87 @@ let procuctlist=[{
             price:"200",
 
         },
+         {
+            id:5,
+            image:"https://preview.redd.it/sharing-my-workflow-for-how-to-remove-background-in-a1111-v0-ik008g1kyyua1.png?width=800&format=png&auto=webp&s=e3cd20bdcbdfd1967808b5d6f4be34db029aaead",
+            heading:"Study Chair",
+            rating:"4.3",
+            color:"Black Blue Grey",
+            price:"300",
+
+        },
+        {
+            id:6,
+            image:"https://img.freepik.com/free-vector/modern-beige-sofa-realistic-icon-white-background-vector-illustration_1284-67384.jpg",
+            heading:"Sofa",
+            rating:"4.3",
+            color:"Black Blue Grey",
+            price:"300",
+
+        },
+        {
+            id:7,
+            image:"https://www.ulcdn.net/images/products/921639/original/Werner_Study_Chair_Nylon_Base_LP.jpg?1722319626",
+            heading:"Dining Table",
+            rating:"4.3",
+            color:"Black Blue Grey",
+            price:"250",
+
+        },
+        {
+            id:8,
+            image:"https://i.pinimg.com/736x/91/a2/b8/91a2b8d0d2cf734b86240d10f58a9c41.jpg",
+            heading:"Dining Table",
+            rating:"4.3",
+            color:"Black Blue Grey",
+            price:"250",
+
+        },
+        {
+            id:9,
+            image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMpM81K9-ZUQGlYvg7_elqdRMQtddp-FhbNg&s",
+            heading:"Office Chair",
+            rating:"4.3",
+            color:"Black Blue Grey",
+            price:"250",
+
+        },
+        {
+            id:10,
+            image:"https://www.wfhtable.com/cdn/shop/files/2K2A6407-removebg-PhotoRoom.png?v=1691414530&width=1946",
+             heading:"Office Chair",
+            rating:"4.3",
+            color:"Black Blue Grey",
+            price:"250",
+
+        },
+        {
+            id:11,
+            image:"https://decorativefair.com/wp-content/uploads/2024/06/Z50_1413_Mirror_Fronted_cabinet-removebg.png",
+             heading:"Cup Board",
+            rating:"4.3",
+            color:"Black Blue Grey",
+            price:"250",
+
+        },
+        {
+            id:12,
+            image:"https://thumbs.dreamstime.com/b/wooden-wardrobe-isolated-white-transparent-background-closed-brown-close-up-front-view-graphic-design-element-theme-312240807.jpg",
+             heading:"Cup Board",
+            rating:"4.3",
+            color:"Black Blue Grey",
+            price:"250",
+
+        },
+        {
+            id:13,
+            image:"https://img.freepik.com/premium-photo/table-computer_692498-1924.jpg?semt=ais_hybrid&w=740&q=80",
+            heading:"Computer Table",
+            rating:"4.3",
+            color:"Black Blue Grey",
+            price:"250",
+            
+        },
     ]
 
 let cart=JSON.parse(localStorage.getItem("cart")) || []
@@ -76,9 +157,24 @@ function addToCart(idx) {
         if (productToAdd) { // Check if the product was found
             productToAdd.quantity = 1;
             cart.push(productToAdd);
+            Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Product is Added to Cart",
+            showConfirmButton: false,
+            timer: 1500
+        });
         }
     } else {
         cart[cartIndex].quantity++;
+         Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `Total Product Quantity is ${cart[cartIndex].quantity}` ,
+            showConfirmButton: false,
+            timer: 1500
+        });
+        
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
