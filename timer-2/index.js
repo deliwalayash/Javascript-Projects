@@ -19,6 +19,9 @@ let totalsec=0
 let timeinterval=null
 let result=document.getElementById("result")
 let quote=document.getElementById("quote")
+let audio=document.getElementById("audio")
+let audio1=document.getElementById("audio1")
+let resumeBtn = document.getElementById("resume")
         function quotepicker(){
             let idx=parseInt(Math.random() *14)
             quote.innerHTML = `<h1 class="text-primary mb-5 text-center">${quotes[idx].quote}</h1>
@@ -40,9 +43,20 @@ let quote=document.getElementById("quote")
             let min = document.getElementById("min").value || 0
             let sec = document.getElementById("sec").value || 0
 
+            if(hour ==0 && min ==0 && sec ==0){
+                Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Please Enter Hour , Min or Second to Start Timer",
+                });
+                return
+            }
+
             totalsec= hour * 3600 + min * 60 + parseInt(sec)
             sbt.disabled = true
-        
+            resumeBtn.disabled = true;
+            audio.play()
+              
             timeinterval=setInterval(()=>{
                 if(totalsec <=0){
                     clearInterval(timeinterval)
@@ -50,34 +64,55 @@ let quote=document.getElementById("quote")
                      quote.classList.remove("d-none")
                      quotepicker() 
                      fireworks()
+                     audio.pause()
+                     audio1.play()
+                      resumeBtn.disabled = false;
+                        document.getElementById("min").value=""
+                      document.getElementById("sec").value =""
+                      document.getElementById("hour").value =""
                      return
                 }
                 totalsec--;
-                result.innerHTML=setTimer(totalsec)
+              result.innerHTML=setTimer(totalsec)
             },1000)
         }
        
         function pause(){
+            audio.pause()
+             resumeBtn.disabled = false;
             clearInterval(timeinterval)
         }
 
         function reset(){
             clearInterval(timeinterval)
+            audio.pause()
             totalsec=0
             result.innerHTML = "00:00:00"
             sbt.disabled=false
+            document.getElementById("min").value=""
+            document.getElementById("sec").value =""
+            document.getElementById("hour").value =""
         }
        
         function resume(){
+            audio.play()
             clearInterval(timeinterval)
              timeinterval=setInterval(()=>{
                 if(totalsec <=0){
                     clearInterval(timeinterval)
                      sbt.disabled = false
+                     audio.pause()
+                     audio1.play()
+                     quotepicker()
+                     fireworks()
+                        document.getElementById("min").value=""
+                        document.getElementById("sec").value =""
+                        document.getElementById("hour").value =""
+                        return
                     
                 }
-                 result.innerHTML=setTimer(totalsec)
                 totalsec--;
+                 result.innerHTML=setTimer(totalsec)
             },1000)
 
         }
