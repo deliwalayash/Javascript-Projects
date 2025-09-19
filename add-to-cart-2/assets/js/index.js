@@ -178,18 +178,9 @@ function addToCart(idx) {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    gettotalitems();
+   
     updateCounter();
 
-    // Call displayCart if the function exists
-    // if (typeof displayCart === 'function') {
-    //     displayCart();
-    // }
-    
-    // Manually show the offcanvas using Bootstrap's JS API
-    // let offcanvasEl = document.getElementById('cartOffcanvas');
-    // let bsOffcanvas = new bootstrap.Offcanvas(offcanvasEl);
-    // bsOffcanvas.show();
 }
 function displayProducts(){
     card.innerHTML=""

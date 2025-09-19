@@ -31,7 +31,7 @@ header {
 /* Make sticky-menu fixed below header */
 .sticky-menu {
   position: sticky;
-  top: 128px; /* adjust based on total height of .topbar + header */
+  top: 127px; /* adjust based on total height of .topbar + header */
   left: 0;
   width: 100%;
   z-index: 1030;
