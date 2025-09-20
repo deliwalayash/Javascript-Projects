@@ -39,9 +39,9 @@ let resumeBtn = document.getElementById("resume")
         }
 
         function timer(){
-            let hour = document.getElementById("hour").value || 0
-            let min = document.getElementById("min").value || 0
-            let sec = document.getElementById("sec").value || 0
+            let hour = parseInt(document.getElementById("hour").value) || 0
+            let min = parseInt(document.getElementById("min").value) || 0
+            let sec = parseInt(document.getElementById("sec").value) || 0
 
             if(hour ==0 && min ==0 && sec ==0){
                 Swal.fire({
