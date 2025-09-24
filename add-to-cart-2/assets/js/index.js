@@ -154,7 +154,7 @@ function addToCart(idx) {
 
     if (cartIndex == -1) {
         let productToAdd = procuctlist.find((product) => product.id == idx);
-        if (productToAdd) { // Check if the product was found
+         // Check if the product was found
             productToAdd.quantity = 1;
             cart.push(productToAdd);
             Swal.fire({
@@ -164,7 +164,7 @@ function addToCart(idx) {
             showConfirmButton: false,
             timer: 1500
         });
-        }
+      
     } else {
         cart[cartIndex].quantity++;
          Swal.fire({

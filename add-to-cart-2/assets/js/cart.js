@@ -69,7 +69,8 @@ function displayCart(){
         <td>${product.heading}</td>
         <td>$${product.price}</td>
         <td>
-        <div class="d-flex">  <button class="btn btn-warning" onclick="updateQuantity(${idx},-1)">-</button>
+        <div class="d-flex align-items-center justify-content-center">  
+        <button class="btn btn-warning" onclick="updateQuantity(${idx},-1)">-</button>
         <span class="px-3">${product.quantity}</span>
          <button class="btn btn-warning" onclick="updateQuantity(${idx},1)">+</button>
         </td>
