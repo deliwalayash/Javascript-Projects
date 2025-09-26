@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+
+<body>
+    <div class="weather-card">
+        <h1 class="text-center">Covin 19-Cases</h1>
+        <input type="text" name="" id="ip" class="form-control" placeholder="Please Enter Any State Name">
+        <button class="btn btn-danger mt-4" id="sbt">Submit</button>
+        <h3 id="nodata"></h3>
+        <h3 id="loc" ></h3>
+        <h3 id="confirmedCasesIndian"></h3>
+        <h3 id="confirmedCasesForeign"></h3>
+        <h3 id="deaths"></h3>
+        <h3 id="discharged"></h3>
+        <h3 id="totalConfirmed"></h3>
+    </div>
+    
+    
+</body>
+
+<script>
+    const nodata=document.getElementById("nodata")
+    const loc=document.getElementById("loc")
+    const confirmedCasesIndian=document.getElementById("confirmedCasesIndian")
+    const confirmedCasesForeign=document.getElementById("confirmedCasesForeign")
+    const deaths=document.getElementById("deaths")
+    const discharged=document.getElementById("discharged")
+    const totalConfirmed=document.getElementById("totalConfirmed")
+
+
+    document.getElementById("sbt").addEventListener("click",getApiResponse);{
+
+    }
+    async function getApiResponse(){
+
+        let input=document.getElementById("ip").value
+
+        try{
+            let response = await fetch("https://api.rootnet.in/covid19-in/stats")
+
+            if(response.ok != true){
+                throw new Error("No data Found")
+            }
+            let getData =await response.json()
+           
+            let founddata=await getData.data.regional.find((states)=>{
+                return states.loc.toLowerCase().includes(input.toLowerCase())
+            })
+    
+    
+    
+            loc.innerHTML=founddata.loc
+            confirmedCasesIndian.innerHTML=founddata.confirmedCasesIndian
+            confirmedCasesForeign.innerHTML=founddata.confirmedCasesForeign
+            deaths.innerHTML=founddata.deaths
+            discharged.innerHTML=founddata.discharged
+            totalConfirmed.innerHTML=founddata.totalConfirmed
+        }
+       
+        catch(err){
+               nodata.innerHTML ="No data Found"
+           }
+    }
+
+</script>
+</html>
