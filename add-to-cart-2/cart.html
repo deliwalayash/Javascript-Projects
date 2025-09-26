@@ -31,7 +31,7 @@
                         </div>
                      <div>
        
-                      <button class="btn btn-primary position-relative" onclick="window.location='./index.html'">
+                      <button class="btn btn-success position-relative" onclick="window.location='./index.html'">
                           <span>
                               <i class="ri-shopping-cart-fill"></i>
                           </span>
@@ -81,6 +81,7 @@
 
                     <table class="table  table-active">
                         <thead>
+                            <th>Item No</th>
                             <th>Item Image</th>
                             <th>Item Name</th>
                             <th>Item Price</th>
@@ -104,7 +105,7 @@
                     <p class="card-text fs-5">
                         Here is your total Bill : <span id="mainTotal" class="text-danger display-4"></span>
                     </p>
-                    <a href="#" class="btn btn-primary">Checkout</a>
+                    <a href="#" class="btn btn-success" id="checkoutBtn" data-bs-toggle="modal">Checkout</a>
                 </div>
             </div>
 
@@ -115,6 +116,7 @@
         </div>
 
     </section>
+    
 
 
     <script src="./assets/js/cart.js"></script>

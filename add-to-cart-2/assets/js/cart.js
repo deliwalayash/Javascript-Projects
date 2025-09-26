@@ -65,16 +65,23 @@ function displayCart(){
 
         cartItemElement.innerHTML +=`
         <tr>
+      
+        <td>${idx+1}</td>
         <td><img class="img-fluid" style="width:80px; height:auto;"src="${product.image}"></td>
+
         <td>${product.heading}</td>
+
         <td>$${product.price}</td>
+
         <td>
         <div class="d-flex align-items-center justify-content-center">  
         <button class="btn btn-warning" onclick="updateQuantity(${idx},-1)">-</button>
         <span class="px-3">${product.quantity}</span>
          <button class="btn btn-warning" onclick="updateQuantity(${idx},1)">+</button>
         </td>
+
         <td>$${subTotal.toFixed(2)}</td>
+
         <td><button class="btn btn-danger" onclick="deleteItem(${idx})">🗑</button></td></div>
       
         </tr>
@@ -104,3 +111,21 @@ displayCart()
 addEventListener("DOMContentLoaded",function(){
     totalitemsnumber.innerHTML=totalquantity
 })
+
+function applyPromo() {
+  let promoCode = document.getElementById("promoInput").value.trim();
+  let cartTotal = parseFloat(document.getElementById("mainTotal").innerText);
+
+  if (promoCode === "BONIK10") {
+    let discount = cartTotal * 0.10;
+    let finalTotal = cartTotal - discount;
+
+    document.getElementById("discount").innerText = discount.toFixed(2);
+    document.getElementById("finalTotal").innerText = finalTotal.toFixed(2);
+
+    alert("🎉 Promo applied! You saved ₹" + discount.toFixed(2));
+    bootstrap.Modal.getInstance(document.getElementById("promoModal")).hide();
+  } else {
+    alert("❌ Invalid promo code");
+  }
+}

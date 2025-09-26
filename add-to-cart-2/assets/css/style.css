@@ -277,6 +277,73 @@ header {
     z-index: 1050; /* Ensure it's above other content */
 }
 
+/* ==== SweetAlert2 custom theme ==== */
+.swal2-popup {
+  background: #fffff4;   /* light background, matches your card feel */
+  border-radius: 20px;   /* smooth corners */
+  padding: 1rem;
+  font-family: 'Public Sans', sans-serif;
+  color: #333;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.swal2-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #222; /* matches header text */
+}
+
+.swal2-html-container {
+  font-size: 1rem;
+  color: #555;
+}
+
+.swal2-confirm {
+  background-color: #198754 !important;  /* bootstrap green */
+  color: #fff !important;
+  border-radius: 50px !important;
+  padding: 0.6rem 1.5rem !important;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(25,135,84,0.4);
+  transition: all 0.3s ease;
+}
+.swal2-confirm:hover {
+  background-color: #157347 !important;
+}
+
+.swal2-cancel {
+  background-color: #6c757d !important; /* bootstrap gray */
+  color: #fff !important;
+  border-radius: 50px !important;
+  padding: 0.6rem 1.5rem !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.swal2-cancel:hover {
+  background-color: #5a6268 !important;
+}
+
+.swal2-icon.swal2-success {
+  border-color: #198754 !important;
+  color: #198754 !important;
+}
+
+.swal2-icon.swal2-error {
+  border-color: #dc3545 !important;
+  color: #dc3545 !important;
+}
+
+.swal2-icon.swal2-warning {
+  border-color: #ffc107 !important;
+  color: #ffc107 !important;
+}
+
+.swal2-icon.swal2-info {
+  border-color: #0dcaf0 !important;
+  color: #0dcaf0 !important;
+}
+
+
 
 
 

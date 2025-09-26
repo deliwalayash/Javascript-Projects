@@ -258,5 +258,16 @@ submit.addEventListener("click",function(e){
     
 })
 
+function copyPromo() {
+  let promo = document.getElementById("promoCode");
+  navigator.clipboard.writeText(promo.value);
+  alert("Promo code copied: " + promo.value);
+}
+
+setTimeout(()=>{
+    var promoModal = new bootstrap.Modal(document.getElementById('promoModal'));
+    promoModal.show();
+},1000);
+
 
 

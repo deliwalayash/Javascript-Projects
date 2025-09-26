@@ -13,17 +13,14 @@
 
      <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 
-     <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-    rel="stylesheet"
-/>
+
 </head>
 <body >
     
     <div class="topbar">
          <div class="container">
-       <div class="d-flex justify-content-between align-items-center">
-        <div class="topbar-left d-flex align-items-center gap-3">
+             <div class="d-flex justify-content-between align-items-center">
+             <div class="topbar-left d-flex align-items-center gap-3">
             <div class="logo d-lg-none">
                 <img src="./assets/images/logo.1ae2bdc8.svg" alt="" class="img-fluid">
 
@@ -38,16 +35,16 @@
                 <span>support@ui-lib.com</span>
             </div>
             
-        </div>
-        <div class="topbar-right d-flex">
+            </div>
+            <div class="topbar-right d-flex">
             <span class="sc-d8a5e526-0 kUjynV link px-2 d-none d-lg-block">Theme FAQ"s</span>
             <span class="sc-d8a5e526-0 kUjynV link px-2 d-none d-lg-block">Need Help?</span>
             <img src="./assets/images/usa.png" alt="" style="height: 14px; border-radius: 4px;">
             <span class="px-2 language">EN</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-chevron-down "><path d="M6 9l6 6l6 -6"></path></svg>
-        </div>
-       </div>
-
+             </div>
+             </div>
+         </div>
     </div>
 
     </div>
@@ -253,6 +250,32 @@
         </div>
     </footer>
 
+<div class="modal fade" id="promoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg" style="border-radius:20px;">
+      
+      <!-- Header -->
+      <div class="modal-header bg-success text-white" style="border-radius:20px 20px 0 0;">
+        <h5 class="modal-title fw-bold">🎉 Welcome to Bonik Furniture!</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <!-- Body -->
+      <div class="modal-body text-center">
+        <p class="mb-3 fs-5">Apply this promocode at checkout and get <span class="fw-bold text-success">10% OFF</span> on your purchase.</p>
+        
+        <!-- Promo Code Box -->
+        <div class="input-group mb-3 justify-content-center">
+          <input type="text" class="form-control text-center fw-bold" id="promoCode" value="BONIK10" readonly 
+                 style="max-width:200px; border:2px dashed #198754; border-radius:10px; background:#f8f9fa;">
+          <button class="btn btn-success fw-semibold" onclick="copyPromo()">Copy</button>
+        </div>
+        
+        <small class="text-muted">Use code <strong>BONIK10</strong> at checkout</small>
+      </div>
+      
+
+
 
 <a href="./cart.html">
 
@@ -263,7 +286,8 @@
     </div>
 
 </a>
-   
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="./assets/js/index.js"></script>
